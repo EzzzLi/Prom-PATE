@@ -218,4 +218,4 @@ def main():
     ##################
     teacher_preds_all = torch.tensor(teacher_preds_all)
     print(teacher_preds_all.shape) 
-    torch.save(teacher_preds_all, f"teacher_preds_celeba_1000_swin_transfer.pth")  
+    torch.save(teacher_preds_all, f"../teacher_preds/teacher_preds_celeba.pth")  

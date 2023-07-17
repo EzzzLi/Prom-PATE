@@ -170,7 +170,6 @@ def main():
     parser.add_argument('--seed', type=int, default=8872574) #4
     parser.add_argument('--device', type=str, default='cpu')
     parser.add_argument('--teacher_num', type=int, default=1000)
-    parser.add_argument('--dataset', type=str, default='MNIST')
     parser.add_argument('--batch_size', type=int, default=16)
     parser.add_argument('--epoch', type=int, default=60)
     parser.add_argument('--lr', type=float, default=0.05)
@@ -220,8 +219,7 @@ def main():
     ##################
     teacher_preds_all = torch.tensor(teacher_preds_all)
     print(teacher_preds_all.shape) 
-    torch.save(teacher_preds_all, f"teacher_preds_tissue_1000_wideresnet_192_tansfer.pth") 
-    torch.save(test_accs, f"testacc_preds_tissue_1000_wideresnet_192_tansfer.pth") 
+    torch.save(teacher_preds_all, f"../teacher_preds/teacher_preds_tissue.pth") 
 
 
 

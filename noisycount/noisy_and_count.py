@@ -301,7 +301,7 @@ def noisy_aggregation(true_label, teacher_preds, args):
     # print(noisy_labels)
     total_noisy_labels[:private_data_size] = noisy_labels
     # print(total_noisy_labels)
-    torch.save(total_noisy_labels,f"./noisy_label/nosiy_labels_{args.dataset}_{args.preds_file}_{args.eps}.pth")
+    torch.save(total_noisy_labels,f"../noisy_label/nosiy_labels_{args.dataset}_{args.preds_file}_{args.eps}.pth")
     # return noisy_labels
 
 
@@ -395,7 +395,7 @@ def main():
 
 
 
-    preds = torch.load(f"./teacher_preds/teacher_preds_{args.preds_file}.pth").numpy()
+    preds = torch.load(f"../teacher_preds/teacher_preds_{args.preds_file}.pth").numpy()
     count_num(preds, args.class_num)
     count_epsilon(args)
     target = np.array(dataset.targets)

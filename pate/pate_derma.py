@@ -246,7 +246,7 @@ def main():
     ##################
     teacher_preds_all = torch.tensor(teacher_preds_all)
     print(teacher_preds_all.shape) 
-    torch.save(teacher_preds_all, f"teacher_preds_derma_500_wideresnet_192.pth") 
+    torch.save(teacher_preds_all, f"../teacher_preds/teacher_preds_derma.pth") 
     # torch.save(test_accs, f"testacc_preds_path_path_wideresnet_128.pth") 
 
 

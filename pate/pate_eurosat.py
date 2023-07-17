@@ -170,7 +170,6 @@ def main():
     parser.add_argument('--seed', type=int, default=8872574) #4
     parser.add_argument('--device', type=str, default='cpu')
     parser.add_argument('--teacher_num', type=int, default=250)
-    parser.add_argument('--dataset', type=str, default='CIFAR10')
     parser.add_argument('--batch_size', type=int, default=16)
     parser.add_argument('--epoch', type=int, default=10)
     parser.add_argument('--lr', type=float, default=0.05)
@@ -228,7 +227,7 @@ def main():
     ##################
     teacher_preds_all = torch.tensor(teacher_preds_all)
     print(teacher_preds_all.shape) 
-    torch.save(teacher_preds_all, f"teacher_preds_eurosat_160.pth")  
+    torch.save(teacher_preds_all, f"../teacher_preds/teacher_preds_eurosat.pth")  
 
 
 
