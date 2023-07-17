@@ -1,0 +1,1 @@
+根目录下缺少model.safetensors，具体看./semilearn/nets/convnext/convnext.py
