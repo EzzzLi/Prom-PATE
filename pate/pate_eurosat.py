@@ -203,9 +203,9 @@ def main():
 
     # private_data_size = len(private_dataset)
     index = random_split([10000, 1000, 1000, dataset_size-12000],args.seed)
-    train_data = myEuroSAT('./data/',index=index[0],download=True,transform=train_transform)
+    train_data = myEuroSAT('../data/EuroSAT',index=index[0],download=True,transform=train_transform)
 #     semi_test_data = myEuroSAT('./data/',download=True)
-    semi_label_data = myEuroSAT('./data/',index=index[2],download=True,transform=test_transform)
+    semi_label_data = myEuroSAT('../data/EuroSAT',index=index[2],download=True,transform=test_transform)
 #     semi_ulabel_data = myEuroSAT('./data/',download=True)
     
     

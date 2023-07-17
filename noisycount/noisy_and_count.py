@@ -342,11 +342,11 @@ def main():
     args = parser.parse_args()
 
     if args.dataset == 'CIFAR10':
-        dataset = datasets.CIFAR10('./data/CIFAR10', train=False, download=True)
+        dataset = datasets.CIFAR10('../data/CIFAR10', train=False, download=True)
         datasize = len(dataset)
         [label_index, test_index, unlabel_index] = random_split([2000, 1000, datasize-3000], args.seed)
     if args.dataset == 'EuroSAT':
-        dataset = myEuroSAT('./data/EuroSAT',download=True)
+        dataset = myEuroSAT('../data/EuroSAT',download=True)
         datasize = len(dataset)
         [train_index, semi_test_index, label_index,semi_ulabel_index] = random_split([10000, 1000, 1000, datasize-12000],args.seed)
     if args.dataset == 'BloodMNIST':
@@ -354,7 +354,7 @@ def main():
         datasize = len(dataset)
         [label_index, test_index, unlabel_index] = random_split([1000, 1000, datasize-2000], args.seed)
     if args.dataset == 'CIFAR100':
-        dataset = datasets.CIFAR100('./data/CIFAR100', train=False, download=True)
+        dataset = datasets.CIFAR100('../data/CIFAR100', train=False, download=True)
         datasize = len(dataset)
         [label_index, test_index, unlabel_index] = random_split([2000, 1000, datasize-3000], args.seed)
     if args.dataset == 'TissueMNIST':
@@ -362,11 +362,11 @@ def main():
         datasize = len(dataset)
         [label_index, test_index, unlabel_index] = random_split([2000, 1000, datasize-3000], args.seed)
     if args.dataset == 'CelebA':
-        dataset = Celeba_gender('./data/CelebA', split='test',  download=True)
+        dataset = Celeba_gender('../data/CelebA', split='test',  download=True)
         datasize = len(dataset)
         [label_index, test_index, unlabel_index] = random_split([3000, 1000, datasize-4000], args.seed)
     if args.dataset == 'SVHN':
-        dataset = mySVHN('./data/SVHN', split='test', download=True)    
+        dataset = mySVHN('../data/SVHN', split='test', download=True)    
         datasize = len(dataset)
         [label_index, test_index, unlabel_index] = random_split([2000, 1000, datasize-3000], args.seed)
     if args.dataset == 'PathMNIST':
@@ -378,7 +378,7 @@ def main():
         datasize = len(dataset)
         [label_index, test_index, unlabel_index] = random_split([1000, 1000, datasize-2000], args.seed)
     if args.dataset == 'FFHQ':
-        dataset = mydataset('/root/autodl-tmp/gender/')
+        dataset = mydataset('../data/gender')
         datasize = len(dataset)
         [train_set,unlabel_data, label_index, test_set] = random_split([50000, datasize-53000, 2000, 1000],args.seed)
 

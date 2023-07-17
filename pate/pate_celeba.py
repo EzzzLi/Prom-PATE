@@ -192,8 +192,8 @@ def main():
         transforms.ToTensor(),
         transforms.Normalize((0.50612009, 0.42543493, 0.38282761), (0.26589054, 0.24521921, 0.24127836)),
         ])
-    train_dataset = Celeba_gender('./data/CelebA', split='train', transform=train_transform, download=True, )
-    private_dataset = Celeba_gender('./data/CelebA', split='test', transform=test_transform, download=True, )
+    train_dataset = Celeba_gender('../data/CelebA', split='train', transform=train_transform, download=True, )
+    private_dataset = Celeba_gender('../data/CelebA', split='test', transform=test_transform, download=True, )
     private_data_size = len(private_dataset)
     print(private_data_size)
 

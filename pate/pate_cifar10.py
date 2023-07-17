@@ -200,8 +200,8 @@ def main():
         transforms.ToTensor(),
         transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
         ])
-    train_dataset = datasets.CIFAR10('./data/', train=True, transform=train_transform, download=True, )
-    private_dataset = datasets.CIFAR10('./data/', train=False, transform=test_transform, download=True, )
+    train_dataset = datasets.CIFAR10('../data/CIFAR10', train=True, transform=train_transform, download=True, )
+    private_dataset = datasets.CIFAR10('../data/CIFAR10', train=False, transform=test_transform, download=True, )
     private_data_size = len(private_dataset)
     [private_label_data, test_data, private_unlabel_data] = random_split(private_dataset, [2000, 1000, private_data_size-3000],args.seed)
     # train

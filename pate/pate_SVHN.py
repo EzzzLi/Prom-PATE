@@ -210,8 +210,8 @@ def main():
         transforms.ToTensor(),
         transforms.Normalize(mean_svhn, std_svhn),
         ])
-    train_dataset = mySVHN('./data/SVHN', split='train', transform=train_transform, download=True, )
-    private_dataset = mySVHN('./data/SVHN', split='test', transform=test_transform, download=True, )
+    train_dataset = mySVHN('../data/SVHN', split='train', transform=train_transform, download=True, )
+    private_dataset = mySVHN('../data/SVHN', split='test', transform=test_transform, download=True, )
     private_data_size = len(private_dataset)
     print(private_data_size)
 

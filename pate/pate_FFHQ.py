@@ -194,14 +194,14 @@ def main():
         ])
     # train_dataset = Celeba_gender('/root/autodl-tmp/', split='train', transform=train_transform, download=False, )
     # private_dataset = Celeba_gender('/root/autodl-tmp/', split='test', transform=test_transform, download=False, )
-    dataset = mydataset('/root/autodl-tmp/gender/')
+    dataset = mydataset('../data/gender')
     # test_dataset = mydataset('/root/autodl-tmp/gender/')
     datasize = len(dataset)
     print(datasize)
     [train_set, unlabel_data, quire_label, test_set] = random_split([50000, datasize-53000, 2000, 1000],args.seed)
     
-    train_dataset = mydataset('/root/autodl-tmp/gender/', index=train_set, transform = train_transform)
-    quire_dataset = mydataset('/root/autodl-tmp/gender/', index=quire_label, transform = test_transform)
+    train_dataset = mydataset('../data/gender', index=train_set, transform = train_transform)
+    quire_dataset = mydataset('../data/gender', index=quire_label, transform = test_transform)
 #     # train
     total_size = len(train_dataset)
     lengths = [int(total_size/num_teachers)]*num_teachers

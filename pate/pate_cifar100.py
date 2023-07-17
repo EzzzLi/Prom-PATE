@@ -190,8 +190,8 @@ def get_dataset(dataset = 'CIFAR10'):
             transforms.ToTensor(),
             transforms.Normalize(cifar100_mean, cifar100_std),
             ])
-        train_dataset = datasets.CIFAR100('./data/', train=True, transform=train_transform, download=True, )
-        private_dataset = datasets.CIFAR100('./data/', train=False, transform=test_transform, download=True, )
+        train_dataset = datasets.CIFAR100('../data/CIFAR100', train=True, transform=train_transform, download=True, )
+        private_dataset = datasets.CIFAR100('../data/CIFAR100', train=False, transform=test_transform, download=True, )
     return 
 
 def main():
