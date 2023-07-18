@@ -4,7 +4,7 @@
 import torch
 
 from .utils import SoftMatchWeightingHook
-from semilearn.core.algorithmbase import AlgorithmBase
+from semilearn.core import AlgorithmBase
 from semilearn.core.utils import ALGORITHMS
 from semilearn.algorithms.hooks import PseudoLabelingHook, DistAlignEMAHook
 from semilearn.algorithms.utils import SSL_Argument, str2bool
