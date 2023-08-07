@@ -1,0 +1,1568 @@
+[2023-07-19 08:49:35,439 INFO] Use GPU: None for training
+[2023-07-19 08:49:38,592 INFO] unlabeled data number: 9000, labeled data number 753
+[2023-07-19 08:49:38,592 INFO] Create train and test data loaders
+[2023-07-19 08:49:38,593 INFO] [!] data loader keys: dict_keys(['train_lb', 'train_ulb', 'eval'])
+[2023-07-19 08:49:52,095 INFO] Create optimizer and scheduler
+[2023-07-19 08:49:52,101 INFO] Number of Trainable Params: 304152322
+[2023-07-19 08:49:53,761 INFO] Arguments: Namespace(T=0.5, algorithm='freematch', amp=False, batch_size=8, c='cifar10.yaml', clip=0.0, clip_grad=0, clip_thresh=False, crop_ratio=0.875, data_dir='./data', dataset='cifar10', dist_backend='nccl', dist_url='tcp://127.0.0.1:25955', distributed=False, ema_m=0.0, ema_p=0.999, ent_loss_ratio=0.001, epoch=100, eval_batch_size=16, gpu=None, hard_label=True, imb_algorithm=None, img_size=32, include_lb_to_ulb=True, layer_decay=0.5, lb_dest_len=753, lb_imb_ratio=1, load_path=None, lr=1e-06, max_length=512, max_length_seconds=4.0, momentum=0.9, multiprocessing_distributed=False, net='eva_large_patch14_196_in22k_ft_in22k_in1k', net_from_name=False, noisy_file='nosiy_labels_CIFAR10_cifar10_e1', num_classes=10, num_eval_iter=2048, num_labels=200, num_log_iter=256, num_train_iter=102400, num_warmup_iter=5120, num_workers=4, optim='AdamW', overwrite=True, pretrain_path='', rank=0, resume=False, sample_rate=16000, save_dir='/root/autodl-tmp/savemodel', save_name='freematch_cifar10', seed=0, train_sampler='RandomSampler', ulb_dest_len=9000, ulb_imb_ratio=1, ulb_loss_ratio=1.0, ulb_num_labels=None, uratio=1, use_aim=False, use_cat=True, use_pretrain=False, use_quantile=False, use_tensorboard=True, use_wandb=False, weight_decay=0.0005, world_size=1)
+[2023-07-19 08:49:53,762 INFO] Resume load path None does not exist
+[2023-07-19 08:49:53,762 INFO] Model training
+[2023-07-19 08:52:27,433 INFO] 256 iteration USE_EMA: False, train/sup_loss: 2.4279, train/unsup_loss: 1.6900, train/total_loss: 4.0995, train/util_ratio: 1.0000, train/run_time: 0.5568, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 08:54:58,598 INFO] 512 iteration USE_EMA: False, train/sup_loss: 2.2185, train/unsup_loss: 1.7762, train/total_loss: 3.9730, train/util_ratio: 1.0000, train/run_time: 0.5518, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 08:57:29,453 INFO] 768 iteration USE_EMA: False, train/sup_loss: 2.3406, train/unsup_loss: 1.5272, train/total_loss: 3.8434, train/util_ratio: 1.0000, train/run_time: 0.5520, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 09:00:00,400 INFO] 1024 iteration USE_EMA: False, train/sup_loss: 2.3377, train/unsup_loss: 0.6948, train/total_loss: 3.0056, train/util_ratio: 1.0000, train/run_time: 0.5586, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 09:02:33,221 INFO] 1280 iteration USE_EMA: False, train/sup_loss: 2.1159, train/unsup_loss: 1.1047, train/total_loss: 3.1953, train/util_ratio: 0.8750, train/run_time: 0.5583, lr: 0.0000, train/prefecth_time: 0.0059 
+[2023-07-19 09:05:04,026 INFO] 1536 iteration USE_EMA: False, train/sup_loss: 1.8627, train/unsup_loss: 0.9344, train/total_loss: 2.7712, train/util_ratio: 1.0000, train/run_time: 0.5574, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 09:07:34,398 INFO] 1792 iteration USE_EMA: False, train/sup_loss: 1.2564, train/unsup_loss: 0.9937, train/total_loss: 2.2260, train/util_ratio: 1.0000, train/run_time: 0.5481, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 09:10:05,093 INFO] validating...
+[2023-07-19 09:10:14,361 INFO] confusion matrix:
+[[0.91891892 0.04504505 0.00900901 0.         0.         0.
+  0.         0.         0.02702703 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.9        0.         0.02       0.08
+  0.         0.         0.         0.        ]
+ [0.         0.01       0.06       0.09       0.         0.82
+  0.02       0.         0.         0.        ]
+ [0.         0.00877193 0.29824561 0.         0.64035088 0.03508772
+  0.         0.01754386 0.         0.        ]
+ [0.         0.         0.         0.         0.         1.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.01010101 0.         0.         0.
+  0.         0.98989899 0.         0.        ]
+ [0.         0.03370787 0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]]
+[2023-07-19 09:10:18,483 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 09:10:22,490 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/model_best.pth
+[2023-07-19 09:10:22,492 INFO] 2048 iteration, USE_EMA: False, train/sup_loss: 0.5127, train/unsup_loss: 0.8495, train/total_loss: 1.3421, train/util_ratio: 1.0000, train/run_time: 0.5502, eval/loss: 1.0751, eval/top-1-acc: 0.7440, eval/balanced_acc: 0.7505, eval/precision: 0.7542, eval/recall: 0.7505, eval/F1: 0.6910, lr: 0.0000, train/prefecth_time: 0.0032 BEST_EVAL_ACC: 0.7440, at 2048 iters
+[2023-07-19 09:12:54,917 INFO] 2304 iteration USE_EMA: False, train/sup_loss: 0.7167, train/unsup_loss: 0.5543, train/total_loss: 1.2480, train/util_ratio: 1.0000, train/run_time: 0.5498, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 09:15:26,143 INFO] 2560 iteration USE_EMA: False, train/sup_loss: 0.7030, train/unsup_loss: 0.3206, train/total_loss: 1.0071, train/util_ratio: 0.8750, train/run_time: 0.5570, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 09:17:57,325 INFO] 2816 iteration USE_EMA: False, train/sup_loss: 0.2682, train/unsup_loss: 0.5278, train/total_loss: 0.7800, train/util_ratio: 0.8750, train/run_time: 0.5580, lr: 0.0000, train/prefecth_time: 0.0032 
+[2023-07-19 09:20:28,729 INFO] 3072 iteration USE_EMA: False, train/sup_loss: 0.1600, train/unsup_loss: 0.1399, train/total_loss: 0.2826, train/util_ratio: 1.0000, train/run_time: 0.5570, lr: 0.0000, train/prefecth_time: 0.0033 
+[2023-07-19 09:23:02,066 INFO] 3328 iteration USE_EMA: False, train/sup_loss: 0.0461, train/unsup_loss: 0.0897, train/total_loss: 0.1222, train/util_ratio: 1.0000, train/run_time: 0.5586, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 09:25:33,755 INFO] 3584 iteration USE_EMA: False, train/sup_loss: 0.0785, train/unsup_loss: 0.0941, train/total_loss: 0.1605, train/util_ratio: 1.0000, train/run_time: 0.5506, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 09:28:05,004 INFO] 3840 iteration USE_EMA: False, train/sup_loss: 0.0322, train/unsup_loss: 0.0584, train/total_loss: 0.0764, train/util_ratio: 1.0000, train/run_time: 0.5583, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 09:30:36,344 INFO] validating...
+[2023-07-19 09:30:45,598 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.91       0.         0.06       0.01
+  0.         0.01       0.         0.        ]
+ [0.         0.         0.         0.95       0.         0.05
+  0.         0.         0.         0.        ]
+ [0.         0.00877193 0.         0.         0.98245614 0.
+  0.         0.00877193 0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01030928 0.         0.
+  0.98969072 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.01980198 0.         0.         0.         0.
+  0.         0.         0.         0.98019802]]
+[2023-07-19 09:30:59,712 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 09:31:13,739 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/model_best.pth
+[2023-07-19 09:31:13,740 INFO] 4096 iteration, USE_EMA: False, train/sup_loss: 0.0670, train/unsup_loss: 0.0261, train/total_loss: 0.0787, train/util_ratio: 1.0000, train/run_time: 0.5537, eval/loss: 0.1073, eval/top-1-acc: 0.9750, eval/balanced_acc: 0.9751, eval/precision: 0.9758, eval/recall: 0.9751, eval/F1: 0.9750, lr: 0.0000, train/prefecth_time: 0.0029 BEST_EVAL_ACC: 0.9750, at 4096 iters
+[2023-07-19 09:33:46,737 INFO] 4352 iteration USE_EMA: False, train/sup_loss: 0.0656, train/unsup_loss: 0.0599, train/total_loss: 0.1157, train/util_ratio: 1.0000, train/run_time: 0.5501, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 09:36:18,140 INFO] 4608 iteration USE_EMA: False, train/sup_loss: 0.0157, train/unsup_loss: 0.0248, train/total_loss: 0.0230, train/util_ratio: 0.8750, train/run_time: 0.5476, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 09:38:49,359 INFO] 4864 iteration USE_EMA: False, train/sup_loss: 0.0171, train/unsup_loss: 0.0674, train/total_loss: 0.0701, train/util_ratio: 1.0000, train/run_time: 0.5600, lr: 0.0000, train/prefecth_time: 0.0025 
+[2023-07-19 09:41:20,410 INFO] 5120 iteration USE_EMA: False, train/sup_loss: 0.0103, train/unsup_loss: 0.0343, train/total_loss: 0.0323, train/util_ratio: 1.0000, train/run_time: 0.5511, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 09:43:53,300 INFO] 5376 iteration USE_EMA: False, train/sup_loss: 0.2330, train/unsup_loss: 0.0202, train/total_loss: 0.2413, train/util_ratio: 1.0000, train/run_time: 0.5533, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 09:46:24,652 INFO] 5632 iteration USE_EMA: False, train/sup_loss: 0.0186, train/unsup_loss: 0.0279, train/total_loss: 0.0343, train/util_ratio: 1.0000, train/run_time: 0.5517, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 09:48:55,956 INFO] 5888 iteration USE_EMA: False, train/sup_loss: 0.0261, train/unsup_loss: 0.0941, train/total_loss: 0.1081, train/util_ratio: 1.0000, train/run_time: 0.5583, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 09:51:27,174 INFO] validating...
+[2023-07-19 09:51:36,278 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.00900901]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         1.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.93       0.         0.07
+  0.         0.         0.         0.        ]
+ [0.         0.00877193 0.         0.         0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.01123596]
+ [0.         0.00990099 0.         0.         0.         0.
+  0.         0.         0.         0.99009901]]
+[2023-07-19 09:51:50,240 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 09:52:04,199 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/model_best.pth
+[2023-07-19 09:52:04,200 INFO] 6144 iteration, USE_EMA: False, train/sup_loss: 0.2252, train/unsup_loss: 0.5185, train/total_loss: 0.7339, train/util_ratio: 0.8750, train/run_time: 0.5581, eval/loss: 0.0670, eval/top-1-acc: 0.9840, eval/balanced_acc: 0.9839, eval/precision: 0.9840, eval/recall: 0.9839, eval/F1: 0.9837, lr: 0.0000, train/prefecth_time: 0.0038 BEST_EVAL_ACC: 0.9840, at 6144 iters
+[2023-07-19 09:54:36,784 INFO] 6400 iteration USE_EMA: False, train/sup_loss: 0.0054, train/unsup_loss: 0.0100, train/total_loss: -0.0043, train/util_ratio: 0.7500, train/run_time: 0.5562, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 09:57:07,918 INFO] 6656 iteration USE_EMA: False, train/sup_loss: 0.0054, train/unsup_loss: 0.0091, train/total_loss: -0.0001, train/util_ratio: 1.0000, train/run_time: 0.5488, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 09:59:38,809 INFO] 6912 iteration USE_EMA: False, train/sup_loss: 0.0221, train/unsup_loss: 0.3828, train/total_loss: 0.3926, train/util_ratio: 1.0000, train/run_time: 0.5565, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 10:02:09,849 INFO] 7168 iteration USE_EMA: False, train/sup_loss: 0.0044, train/unsup_loss: 0.0315, train/total_loss: 0.0237, train/util_ratio: 1.0000, train/run_time: 0.5575, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 10:04:42,826 INFO] 7424 iteration USE_EMA: False, train/sup_loss: 0.0035, train/unsup_loss: 0.0039, train/total_loss: -0.0022, train/util_ratio: 1.0000, train/run_time: 0.5488, lr: 0.0000, train/prefecth_time: 0.0028 
+[2023-07-19 10:07:14,059 INFO] 7680 iteration USE_EMA: False, train/sup_loss: 0.0142, train/unsup_loss: 0.0320, train/total_loss: 0.0340, train/util_ratio: 0.8750, train/run_time: 0.5480, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 10:09:45,121 INFO] 7936 iteration USE_EMA: False, train/sup_loss: 0.0032, train/unsup_loss: 0.0351, train/total_loss: 0.0236, train/util_ratio: 1.0000, train/run_time: 0.5512, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 10:12:16,049 INFO] validating...
+[2023-07-19 10:12:25,139 INFO] confusion matrix:
+[[0.96396396 0.         0.         0.         0.         0.
+  0.00900901 0.         0.01801802 0.00900901]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.99       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.00877193 0.         0.         0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01030928 0.         0.
+  0.98969072 0.         0.         0.        ]
+ [0.         0.         0.         0.01010101 0.         0.
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.00990099 0.         0.         0.         0.
+  0.         0.         0.         0.99009901]]
+[2023-07-19 10:12:39,171 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 10:12:39,172 INFO] 8192 iteration, USE_EMA: False, train/sup_loss: 0.0062, train/unsup_loss: 0.0031, train/total_loss: -0.0053, train/util_ratio: 0.8750, train/run_time: 0.5487, eval/loss: 0.0602, eval/top-1-acc: 0.9840, eval/balanced_acc: 0.9842, eval/precision: 0.9838, eval/recall: 0.9842, eval/F1: 0.9839, lr: 0.0000, train/prefecth_time: 0.0030 BEST_EVAL_ACC: 0.9840, at 6144 iters
+[2023-07-19 10:15:11,401 INFO] 8448 iteration USE_EMA: False, train/sup_loss: 0.0329, train/unsup_loss: 0.3395, train/total_loss: 0.3577, train/util_ratio: 1.0000, train/run_time: 0.5522, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 10:17:42,057 INFO] 8704 iteration USE_EMA: False, train/sup_loss: 0.0027, train/unsup_loss: 0.0899, train/total_loss: 0.0779, train/util_ratio: 1.0000, train/run_time: 0.5540, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 10:20:12,923 INFO] 8960 iteration USE_EMA: False, train/sup_loss: 0.0017, train/unsup_loss: 0.0029, train/total_loss: -0.0125, train/util_ratio: 1.0000, train/run_time: 0.5490, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 10:22:43,933 INFO] 9216 iteration USE_EMA: False, train/sup_loss: 0.0024, train/unsup_loss: 0.0148, train/total_loss: 0.0051, train/util_ratio: 1.0000, train/run_time: 0.5497, lr: 0.0000, train/prefecth_time: 0.0033 
+[2023-07-19 10:25:16,806 INFO] 9472 iteration USE_EMA: False, train/sup_loss: 0.0046, train/unsup_loss: 0.0020, train/total_loss: -0.0055, train/util_ratio: 0.8750, train/run_time: 0.5499, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 10:27:47,776 INFO] 9728 iteration USE_EMA: False, train/sup_loss: 0.0214, train/unsup_loss: 0.3557, train/total_loss: 0.3625, train/util_ratio: 1.0000, train/run_time: 0.5559, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 10:30:18,948 INFO] 9984 iteration USE_EMA: False, train/sup_loss: 0.0007, train/unsup_loss: 0.0031, train/total_loss: -0.0108, train/util_ratio: 1.0000, train/run_time: 0.5565, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 10:32:50,140 INFO] validating...
+[2023-07-19 10:32:59,222 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         1.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.00877193 0.         0.         0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 10:33:13,299 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 10:33:27,505 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/model_best.pth
+[2023-07-19 10:33:27,506 INFO] 10240 iteration, USE_EMA: False, train/sup_loss: 0.0013, train/unsup_loss: 0.0020, train/total_loss: -0.0087, train/util_ratio: 0.8750, train/run_time: 0.5562, eval/loss: 0.0397, eval/top-1-acc: 0.9880, eval/balanced_acc: 0.9879, eval/precision: 0.9878, eval/recall: 0.9879, eval/F1: 0.9878, lr: 0.0000, train/prefecth_time: 0.0035 BEST_EVAL_ACC: 0.9880, at 10240 iters
+[2023-07-19 10:36:00,058 INFO] 10496 iteration USE_EMA: False, train/sup_loss: 0.0011, train/unsup_loss: 0.0019, train/total_loss: -0.0142, train/util_ratio: 1.0000, train/run_time: 0.5553, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 10:38:31,200 INFO] 10752 iteration USE_EMA: False, train/sup_loss: 0.0036, train/unsup_loss: 0.0033, train/total_loss: -0.0053, train/util_ratio: 1.0000, train/run_time: 0.5509, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 10:41:02,270 INFO] 11008 iteration USE_EMA: False, train/sup_loss: 0.0010, train/unsup_loss: 0.0866, train/total_loss: 0.0754, train/util_ratio: 0.8750, train/run_time: 0.5590, lr: 0.0000, train/prefecth_time: 0.0043 
+[2023-07-19 10:43:33,352 INFO] 11264 iteration USE_EMA: False, train/sup_loss: 0.0047, train/unsup_loss: 0.0012, train/total_loss: -0.0062, train/util_ratio: 1.0000, train/run_time: 0.5566, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 10:46:06,362 INFO] 11520 iteration USE_EMA: False, train/sup_loss: 0.0020, train/unsup_loss: 0.0047, train/total_loss: -0.0104, train/util_ratio: 1.0000, train/run_time: 0.5555, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-19 10:48:37,606 INFO] 11776 iteration USE_EMA: False, train/sup_loss: 0.0006, train/unsup_loss: 0.0012, train/total_loss: -0.0104, train/util_ratio: 1.0000, train/run_time: 0.5528, lr: 0.0000, train/prefecth_time: 0.0033 
+[2023-07-19 10:51:08,630 INFO] 12032 iteration USE_EMA: False, train/sup_loss: 0.0006, train/unsup_loss: 0.0073, train/total_loss: -0.0067, train/util_ratio: 1.0000, train/run_time: 0.5567, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 10:53:39,685 INFO] validating...
+[2023-07-19 10:53:48,798 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.97       0.         0.03
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01030928 0.         0.
+  0.98969072 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 10:54:02,967 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 10:54:02,968 INFO] 12288 iteration, USE_EMA: False, train/sup_loss: 0.0019, train/unsup_loss: 0.0104, train/total_loss: -0.0048, train/util_ratio: 0.8750, train/run_time: 0.5572, eval/loss: 0.0426, eval/top-1-acc: 0.9880, eval/balanced_acc: 0.9879, eval/precision: 0.9880, eval/recall: 0.9879, eval/F1: 0.9879, lr: 0.0000, train/prefecth_time: 0.0031 BEST_EVAL_ACC: 0.9880, at 10240 iters
+[2023-07-19 10:56:37,195 INFO] 12544 iteration USE_EMA: False, train/sup_loss: 0.0035, train/unsup_loss: 0.0073, train/total_loss: -0.0063, train/util_ratio: 1.0000, train/run_time: 0.5510, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 10:59:08,935 INFO] 12800 iteration USE_EMA: False, train/sup_loss: 0.0130, train/unsup_loss: 0.4898, train/total_loss: 0.4881, train/util_ratio: 1.0000, train/run_time: 0.5529, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 11:01:40,956 INFO] 13056 iteration USE_EMA: False, train/sup_loss: 0.0020, train/unsup_loss: 0.0010, train/total_loss: -0.0067, train/util_ratio: 1.0000, train/run_time: 0.5573, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 11:04:12,908 INFO] 13312 iteration USE_EMA: False, train/sup_loss: 0.0007, train/unsup_loss: 0.8699, train/total_loss: 0.8585, train/util_ratio: 1.0000, train/run_time: 0.5521, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 11:06:46,851 INFO] 13568 iteration USE_EMA: False, train/sup_loss: 0.0008, train/unsup_loss: 0.0034, train/total_loss: -0.0104, train/util_ratio: 1.0000, train/run_time: 0.5625, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 11:09:18,611 INFO] 13824 iteration USE_EMA: False, train/sup_loss: 0.0021, train/unsup_loss: 0.0398, train/total_loss: 0.0273, train/util_ratio: 0.8750, train/run_time: 0.5520, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 11:11:49,867 INFO] 14080 iteration USE_EMA: False, train/sup_loss: 0.0010, train/unsup_loss: 0.0008, train/total_loss: -0.0079, train/util_ratio: 1.0000, train/run_time: 0.5509, lr: 0.0000, train/prefecth_time: 0.0076 
+[2023-07-19 11:14:20,981 INFO] validating...
+[2023-07-19 11:14:30,071 INFO] confusion matrix:
+[[0.97297297 0.         0.         0.         0.         0.
+  0.         0.         0.02702703 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.95       0.         0.05
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01030928 0.         0.
+  0.98969072 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.01010101 0.98989899 0.         0.        ]
+ [0.01123596 0.         0.         0.         0.         0.
+  0.         0.         0.98876404 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 11:14:44,090 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 11:14:44,091 INFO] 14336 iteration, USE_EMA: False, train/sup_loss: 0.0006, train/unsup_loss: 0.0050, train/total_loss: -0.0065, train/util_ratio: 0.8750, train/run_time: 0.5545, eval/loss: 0.0467, eval/top-1-acc: 0.9860, eval/balanced_acc: 0.9862, eval/precision: 0.9856, eval/recall: 0.9862, eval/F1: 0.9858, lr: 0.0000, train/prefecth_time: 0.0036 BEST_EVAL_ACC: 0.9880, at 10240 iters
+[2023-07-19 11:17:16,518 INFO] 14592 iteration USE_EMA: False, train/sup_loss: 0.0054, train/unsup_loss: 0.0017, train/total_loss: -0.0075, train/util_ratio: 1.0000, train/run_time: 0.5559, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 11:19:47,532 INFO] 14848 iteration USE_EMA: False, train/sup_loss: 0.0006, train/unsup_loss: 0.0639, train/total_loss: 0.0524, train/util_ratio: 1.0000, train/run_time: 0.5535, lr: 0.0000, train/prefecth_time: 0.0028 
+[2023-07-19 11:22:18,133 INFO] 15104 iteration USE_EMA: False, train/sup_loss: 0.0017, train/unsup_loss: 0.0007, train/total_loss: -0.0097, train/util_ratio: 1.0000, train/run_time: 0.5565, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 11:24:48,990 INFO] 15360 iteration USE_EMA: False, train/sup_loss: 0.0005, train/unsup_loss: 0.0037, train/total_loss: -0.0079, train/util_ratio: 1.0000, train/run_time: 0.5503, lr: 0.0000, train/prefecth_time: 0.0032 
+[2023-07-19 11:27:21,717 INFO] 15616 iteration USE_EMA: False, train/sup_loss: 0.0038, train/unsup_loss: 0.0026, train/total_loss: -0.0082, train/util_ratio: 0.8750, train/run_time: 0.5561, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 11:29:52,349 INFO] 15872 iteration USE_EMA: False, train/sup_loss: 0.0005, train/unsup_loss: 0.3135, train/total_loss: 0.3019, train/util_ratio: 1.0000, train/run_time: 0.5501, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 11:32:23,256 INFO] 16128 iteration USE_EMA: False, train/sup_loss: 0.0024, train/unsup_loss: 0.0028, train/total_loss: -0.0069, train/util_ratio: 1.0000, train/run_time: 0.5516, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 11:34:53,779 INFO] validating...
+[2023-07-19 11:35:02,866 INFO] confusion matrix:
+[[0.97297297 0.         0.         0.         0.         0.
+  0.         0.         0.02702703 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         1.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.95       0.         0.05
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01030928 0.         0.
+  0.98969072 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.01123596 0.         0.         0.         0.         0.
+  0.         0.         0.98876404 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 11:35:16,831 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 11:35:16,834 INFO] 16384 iteration, USE_EMA: False, train/sup_loss: 0.0008, train/unsup_loss: 0.0019, train/total_loss: -0.0119, train/util_ratio: 1.0000, train/run_time: 0.5545, eval/loss: 0.0496, eval/top-1-acc: 0.9870, eval/balanced_acc: 0.9872, eval/precision: 0.9867, eval/recall: 0.9872, eval/F1: 0.9868, lr: 0.0000, train/prefecth_time: 0.0030 BEST_EVAL_ACC: 0.9880, at 10240 iters
+[2023-07-19 11:37:50,191 INFO] 16640 iteration USE_EMA: False, train/sup_loss: 0.0008, train/unsup_loss: 0.0040, train/total_loss: -0.0099, train/util_ratio: 1.0000, train/run_time: 0.5523, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 11:40:20,791 INFO] 16896 iteration USE_EMA: False, train/sup_loss: 0.0007, train/unsup_loss: 0.0413, train/total_loss: 0.0274, train/util_ratio: 1.0000, train/run_time: 0.5564, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 11:42:51,352 INFO] 17152 iteration USE_EMA: False, train/sup_loss: 0.0006, train/unsup_loss: 0.0017, train/total_loss: -0.0123, train/util_ratio: 1.0000, train/run_time: 0.5564, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 11:45:21,813 INFO] 17408 iteration USE_EMA: False, train/sup_loss: 0.0008, train/unsup_loss: 0.2826, train/total_loss: 0.2713, train/util_ratio: 1.0000, train/run_time: 0.5498, lr: 0.0000, train/prefecth_time: 0.0033 
+[2023-07-19 11:47:54,001 INFO] 17664 iteration USE_EMA: False, train/sup_loss: 0.0014, train/unsup_loss: 0.0028, train/total_loss: -0.0079, train/util_ratio: 1.0000, train/run_time: 0.5557, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 11:50:24,590 INFO] 17920 iteration USE_EMA: False, train/sup_loss: 0.0008, train/unsup_loss: 0.0012, train/total_loss: -0.0101, train/util_ratio: 1.0000, train/run_time: 0.5554, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 11:52:55,393 INFO] 18176 iteration USE_EMA: False, train/sup_loss: 0.0010, train/unsup_loss: 0.0034, train/total_loss: -0.0078, train/util_ratio: 1.0000, train/run_time: 0.5565, lr: 0.0000, train/prefecth_time: 0.0029 
+[2023-07-19 11:55:26,017 INFO] validating...
+[2023-07-19 11:55:35,090 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 11:55:49,261 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 11:55:49,262 INFO] 18432 iteration, USE_EMA: False, train/sup_loss: 0.0010, train/unsup_loss: 0.3132, train/total_loss: 0.3021, train/util_ratio: 1.0000, train/run_time: 0.5557, eval/loss: 0.0447, eval/top-1-acc: 0.9860, eval/balanced_acc: 0.9859, eval/precision: 0.9862, eval/recall: 0.9859, eval/F1: 0.9859, lr: 0.0000, train/prefecth_time: 0.0036 BEST_EVAL_ACC: 0.9880, at 10240 iters
+[2023-07-19 11:58:21,762 INFO] 18688 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.0051, train/total_loss: -0.0091, train/util_ratio: 0.8750, train/run_time: 0.5512, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 12:00:52,505 INFO] 18944 iteration USE_EMA: False, train/sup_loss: 0.0005, train/unsup_loss: 0.0009, train/total_loss: -0.0133, train/util_ratio: 1.0000, train/run_time: 0.5507, lr: 0.0000, train/prefecth_time: 0.0032 
+[2023-07-19 12:03:23,397 INFO] 19200 iteration USE_EMA: False, train/sup_loss: 0.0008, train/unsup_loss: 0.0210, train/total_loss: 0.0096, train/util_ratio: 1.0000, train/run_time: 0.5578, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 12:05:54,088 INFO] 19456 iteration USE_EMA: False, train/sup_loss: 0.0007, train/unsup_loss: 0.0013, train/total_loss: -0.0126, train/util_ratio: 1.0000, train/run_time: 0.5557, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 12:08:26,502 INFO] 19712 iteration USE_EMA: False, train/sup_loss: 0.0007, train/unsup_loss: 0.0775, train/total_loss: 0.0611, train/util_ratio: 1.0000, train/run_time: 0.5519, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 12:10:57,291 INFO] 19968 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0007, train/total_loss: -0.0161, train/util_ratio: 1.0000, train/run_time: 0.5512, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 12:13:28,314 INFO] 20224 iteration USE_EMA: False, train/sup_loss: 0.0008, train/unsup_loss: 0.0010, train/total_loss: -0.0127, train/util_ratio: 0.8750, train/run_time: 0.5546, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 12:15:59,097 INFO] validating...
+[2023-07-19 12:16:08,246 INFO] confusion matrix:
+[[0.97297297 0.         0.         0.         0.         0.
+  0.         0.         0.02702703 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.99       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.94       0.         0.06
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.01030928 0.         0.         0.01030928
+  0.97938144 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.01123596 0.         0.         0.         0.         0.
+  0.         0.         0.98876404 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 12:16:22,328 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 12:16:22,329 INFO] 20480 iteration, USE_EMA: False, train/sup_loss: 0.0037, train/unsup_loss: 0.0660, train/total_loss: 0.0551, train/util_ratio: 1.0000, train/run_time: 0.5499, eval/loss: 0.0516, eval/top-1-acc: 0.9840, eval/balanced_acc: 0.9841, eval/precision: 0.9839, eval/recall: 0.9841, eval/F1: 0.9838, lr: 0.0000, train/prefecth_time: 0.0035 BEST_EVAL_ACC: 0.9880, at 10240 iters
+[2023-07-19 12:18:54,456 INFO] 20736 iteration USE_EMA: False, train/sup_loss: 0.0007, train/unsup_loss: 0.0002, train/total_loss: -0.0112, train/util_ratio: 0.8750, train/run_time: 0.5552, lr: 0.0000, train/prefecth_time: 0.0032 
+[2023-07-19 12:21:25,194 INFO] 20992 iteration USE_EMA: False, train/sup_loss: 0.0005, train/unsup_loss: 0.0021, train/total_loss: -0.0120, train/util_ratio: 0.8750, train/run_time: 0.5579, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 12:23:56,008 INFO] 21248 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.0044, train/total_loss: -0.0073, train/util_ratio: 1.0000, train/run_time: 0.5568, lr: 0.0000, train/prefecth_time: 0.0027 
+[2023-07-19 12:26:26,687 INFO] 21504 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0104, train/total_loss: -0.0014, train/util_ratio: 1.0000, train/run_time: 0.5510, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 12:28:59,343 INFO] 21760 iteration USE_EMA: False, train/sup_loss: 0.0030, train/unsup_loss: 0.0092, train/total_loss: -0.0049, train/util_ratio: 0.8750, train/run_time: 0.5533, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 12:31:30,143 INFO] 22016 iteration USE_EMA: False, train/sup_loss: 0.0014, train/unsup_loss: 0.0089, train/total_loss: -0.0018, train/util_ratio: 1.0000, train/run_time: 0.5573, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 12:34:00,895 INFO] 22272 iteration USE_EMA: False, train/sup_loss: 0.0008, train/unsup_loss: 0.0008, train/total_loss: -0.0081, train/util_ratio: 1.0000, train/run_time: 0.5601, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 12:36:31,446 INFO] validating...
+[2023-07-19 12:36:40,542 INFO] confusion matrix:
+[[1.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         1.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.95       0.         0.05
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.01030928 0.         0.         0.01030928
+  0.97938144 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 12:36:54,538 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 12:36:54,541 INFO] 22528 iteration, USE_EMA: False, train/sup_loss: 0.0007, train/unsup_loss: 0.0031, train/total_loss: -0.0084, train/util_ratio: 0.8750, train/run_time: 0.5618, eval/loss: 0.0475, eval/top-1-acc: 0.9880, eval/balanced_acc: 0.9877, eval/precision: 0.9882, eval/recall: 0.9877, eval/F1: 0.9878, lr: 0.0000, train/prefecth_time: 0.0057 BEST_EVAL_ACC: 0.9880, at 10240 iters
+[2023-07-19 12:39:26,830 INFO] 22784 iteration USE_EMA: False, train/sup_loss: 0.0005, train/unsup_loss: 0.0006, train/total_loss: -0.0135, train/util_ratio: 0.8750, train/run_time: 0.5481, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 12:41:57,492 INFO] 23040 iteration USE_EMA: False, train/sup_loss: 0.0009, train/unsup_loss: 0.0069, train/total_loss: -0.0044, train/util_ratio: 0.8750, train/run_time: 0.5543, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 12:44:28,279 INFO] 23296 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.1620, train/total_loss: 0.1477, train/util_ratio: 1.0000, train/run_time: 0.5508, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 12:46:58,821 INFO] 23552 iteration USE_EMA: False, train/sup_loss: 0.0005, train/unsup_loss: 0.0036, train/total_loss: -0.0079, train/util_ratio: 1.0000, train/run_time: 0.5497, lr: 0.0000, train/prefecth_time: 0.0028 
+[2023-07-19 12:49:31,286 INFO] 23808 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0086, train/total_loss: -0.0108, train/util_ratio: 0.7500, train/run_time: 0.5555, lr: 0.0000, train/prefecth_time: 0.0031 
+[2023-07-19 12:52:02,060 INFO] 24064 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0007, train/total_loss: -0.0136, train/util_ratio: 1.0000, train/run_time: 0.5563, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 12:54:32,820 INFO] 24320 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.2798, train/total_loss: 0.2681, train/util_ratio: 1.0000, train/run_time: 0.5492, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 12:57:04,214 INFO] validating...
+[2023-07-19 12:57:13,306 INFO] confusion matrix:
+[[0.99099099 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.00877193 0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 12:57:27,432 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 12:57:41,520 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/model_best.pth
+[2023-07-19 12:57:41,521 INFO] 24576 iteration, USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.1071, train/total_loss: 0.0977, train/util_ratio: 1.0000, train/run_time: 0.5495, eval/loss: 0.0371, eval/top-1-acc: 0.9890, eval/balanced_acc: 0.9889, eval/precision: 0.9891, eval/recall: 0.9889, eval/F1: 0.9889, lr: 0.0000, train/prefecth_time: 0.0024 BEST_EVAL_ACC: 0.9890, at 24576 iters
+[2023-07-19 13:00:13,835 INFO] 24832 iteration USE_EMA: False, train/sup_loss: 0.0006, train/unsup_loss: 0.0045, train/total_loss: -0.0121, train/util_ratio: 0.8750, train/run_time: 0.5567, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 13:02:44,778 INFO] 25088 iteration USE_EMA: False, train/sup_loss: 0.0023, train/unsup_loss: 0.0090, train/total_loss: -0.0033, train/util_ratio: 1.0000, train/run_time: 0.5527, lr: 0.0000, train/prefecth_time: 0.0030 
+[2023-07-19 13:05:15,604 INFO] 25344 iteration USE_EMA: False, train/sup_loss: 0.0005, train/unsup_loss: 0.0395, train/total_loss: 0.0254, train/util_ratio: 1.0000, train/run_time: 0.5572, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 13:07:46,478 INFO] 25600 iteration USE_EMA: False, train/sup_loss: 0.0023, train/unsup_loss: 0.0016, train/total_loss: -0.0132, train/util_ratio: 1.0000, train/run_time: 0.5630, lr: 0.0000, train/prefecth_time: 0.0056 
+[2023-07-19 13:10:19,308 INFO] 25856 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.1563, train/total_loss: 0.1446, train/util_ratio: 1.0000, train/run_time: 0.5597, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 13:12:50,322 INFO] 26112 iteration USE_EMA: False, train/sup_loss: 0.0005, train/unsup_loss: 0.0012, train/total_loss: -0.0155, train/util_ratio: 1.0000, train/run_time: 0.5508, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 13:15:21,393 INFO] 26368 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.0089, train/total_loss: -0.0053, train/util_ratio: 1.0000, train/run_time: 0.5589, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 13:17:52,466 INFO] validating...
+[2023-07-19 13:18:01,565 INFO] confusion matrix:
+[[0.99099099 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.97       0.         0.03
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.01010101 0.         0.
+  0.         0.98989899 0.         0.        ]
+ [0.01123596 0.         0.         0.         0.         0.
+  0.         0.         0.98876404 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 13:18:15,508 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 13:18:29,577 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/model_best.pth
+[2023-07-19 13:18:29,578 INFO] 26624 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0545, train/total_loss: 0.0401, train/util_ratio: 1.0000, train/run_time: 0.5644, eval/loss: 0.0346, eval/top-1-acc: 0.9910, eval/balanced_acc: 0.9910, eval/precision: 0.9909, eval/recall: 0.9910, eval/F1: 0.9909, lr: 0.0000, train/prefecth_time: 0.0049 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 13:21:02,064 INFO] 26880 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0030, train/total_loss: -0.0064, train/util_ratio: 1.0000, train/run_time: 0.5504, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 13:23:32,882 INFO] 27136 iteration USE_EMA: False, train/sup_loss: 0.0006, train/unsup_loss: 0.0126, train/total_loss: 0.0035, train/util_ratio: 1.0000, train/run_time: 0.5542, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 13:26:03,744 INFO] 27392 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0122, train/total_loss: -0.0022, train/util_ratio: 0.8750, train/run_time: 0.5484, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 13:28:34,798 INFO] 27648 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.1133, train/total_loss: 0.1013, train/util_ratio: 1.0000, train/run_time: 0.5497, lr: 0.0000, train/prefecth_time: 0.0033 
+[2023-07-19 13:31:07,788 INFO] 27904 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.0010, train/total_loss: -0.0083, train/util_ratio: 1.0000, train/run_time: 0.5565, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 13:33:38,763 INFO] 28160 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.0006, train/total_loss: -0.0137, train/util_ratio: 1.0000, train/run_time: 0.5517, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 13:36:09,437 INFO] 28416 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0092, train/total_loss: -0.0027, train/util_ratio: 0.7500, train/run_time: 0.5549, lr: 0.0000, train/prefecth_time: 0.0030 
+[2023-07-19 13:38:40,314 INFO] validating...
+[2023-07-19 13:38:49,382 INFO] confusion matrix:
+[[0.99099099 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.97       0.         0.03
+  0.         0.         0.         0.        ]
+ [0.         0.00877193 0.         0.         0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.01123596 0.         0.         0.         0.         0.
+  0.         0.         0.98876404 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 13:39:03,446 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 13:39:03,447 INFO] 28672 iteration, USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0725, train/total_loss: 0.0607, train/util_ratio: 1.0000, train/run_time: 0.5487, eval/loss: 0.0350, eval/top-1-acc: 0.9910, eval/balanced_acc: 0.9910, eval/precision: 0.9910, eval/recall: 0.9910, eval/F1: 0.9910, lr: 0.0000, train/prefecth_time: 0.0035 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 13:41:35,818 INFO] 28928 iteration USE_EMA: False, train/sup_loss: 0.0006, train/unsup_loss: 0.0051, train/total_loss: -0.0064, train/util_ratio: 1.0000, train/run_time: 0.5574, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 13:44:06,591 INFO] 29184 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0028, train/total_loss: -0.0092, train/util_ratio: 1.0000, train/run_time: 0.5602, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 13:46:37,771 INFO] 29440 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.0022, train/total_loss: -0.0145, train/util_ratio: 1.0000, train/run_time: 0.5624, lr: 0.0000, train/prefecth_time: 0.0100 
+[2023-07-19 13:49:08,656 INFO] 29696 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0120, train/total_loss: -0.0001, train/util_ratio: 1.0000, train/run_time: 0.5590, lr: 0.0000, train/prefecth_time: 0.0029 
+[2023-07-19 13:51:40,991 INFO] 29952 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0023, train/total_loss: -0.0120, train/util_ratio: 1.0000, train/run_time: 0.5522, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 13:54:11,747 INFO] 30208 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0032, train/total_loss: -0.0061, train/util_ratio: 1.0000, train/run_time: 0.5542, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 13:56:42,447 INFO] 30464 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0064, train/total_loss: -0.0082, train/util_ratio: 1.0000, train/run_time: 0.5583, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 13:59:13,262 INFO] validating...
+[2023-07-19 13:59:22,394 INFO] confusion matrix:
+[[0.99099099 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.97       0.         0.02       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.01123596 0.         0.         0.         0.         0.
+  0.         0.         0.98876404 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 13:59:26,920 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 13:59:26,921 INFO] 30720 iteration, USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0004, train/total_loss: -0.0115, train/util_ratio: 1.0000, train/run_time: 0.5492, eval/loss: 0.0473, eval/top-1-acc: 0.9880, eval/balanced_acc: 0.9880, eval/precision: 0.9883, eval/recall: 0.9880, eval/F1: 0.9880, lr: 0.0000, train/prefecth_time: 0.0038 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 14:02:00,403 INFO] 30976 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0380, train/total_loss: 0.0236, train/util_ratio: 1.0000, train/run_time: 0.5612, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 14:04:32,586 INFO] 31232 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0014, train/total_loss: -0.0106, train/util_ratio: 0.8750, train/run_time: 0.5566, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 14:07:04,666 INFO] 31488 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0039, train/total_loss: -0.0054, train/util_ratio: 1.0000, train/run_time: 0.5505, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 14:09:36,380 INFO] 31744 iteration USE_EMA: False, train/sup_loss: 0.0007, train/unsup_loss: 0.0059, train/total_loss: -0.0030, train/util_ratio: 0.8750, train/run_time: 0.5493, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 14:12:09,487 INFO] 32000 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0527, train/total_loss: 0.0407, train/util_ratio: 1.0000, train/run_time: 0.5579, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 14:14:40,784 INFO] 32256 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.1804, train/total_loss: 0.1684, train/util_ratio: 1.0000, train/run_time: 0.5584, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 14:17:11,848 INFO] 32512 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0164, train/total_loss: -0.0006, train/util_ratio: 1.0000, train/run_time: 0.5559, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 14:19:43,104 INFO] validating...
+[2023-07-19 14:19:52,196 INFO] confusion matrix:
+[[0.99099099 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01030928 0.         0.
+  0.98969072 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 14:20:06,648 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 14:20:06,649 INFO] 32768 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0021, train/total_loss: -0.0124, train/util_ratio: 0.8750, train/run_time: 0.5473, eval/loss: 0.0390, eval/top-1-acc: 0.9880, eval/balanced_acc: 0.9878, eval/precision: 0.9881, eval/recall: 0.9878, eval/F1: 0.9879, lr: 0.0000, train/prefecth_time: 0.0032 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 14:22:39,602 INFO] 33024 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.1479, train/total_loss: 0.1359, train/util_ratio: 1.0000, train/run_time: 0.5531, lr: 0.0000, train/prefecth_time: 0.0029 
+[2023-07-19 14:25:10,943 INFO] 33280 iteration USE_EMA: False, train/sup_loss: 0.0019, train/unsup_loss: 0.0019, train/total_loss: -0.0109, train/util_ratio: 0.8750, train/run_time: 0.5592, lr: 0.0000, train/prefecth_time: 0.0093 
+[2023-07-19 14:27:42,233 INFO] 33536 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0004, train/total_loss: -0.0116, train/util_ratio: 1.0000, train/run_time: 0.5561, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 14:30:13,667 INFO] 33792 iteration USE_EMA: False, train/sup_loss: 0.0010, train/unsup_loss: 0.1505, train/total_loss: 0.1369, train/util_ratio: 1.0000, train/run_time: 0.5572, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 14:32:46,765 INFO] 34048 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0108, train/total_loss: -0.0011, train/util_ratio: 1.0000, train/run_time: 0.5514, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 14:35:18,059 INFO] 34304 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.0005, train/total_loss: -0.0136, train/util_ratio: 0.8750, train/run_time: 0.5490, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 14:37:49,288 INFO] 34560 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0005, train/total_loss: -0.0114, train/util_ratio: 1.0000, train/run_time: 0.5497, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 14:40:20,924 INFO] validating...
+[2023-07-19 14:40:30,131 INFO] confusion matrix:
+[[0.96396396 0.         0.         0.         0.         0.
+  0.         0.         0.03603604 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.98       0.         0.02
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.00877193 0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.01010101 0.98989899 0.         0.        ]
+ [0.01123596 0.         0.         0.         0.         0.
+  0.         0.         0.98876404 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 14:40:45,288 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 14:40:45,292 INFO] 34816 iteration, USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0010, train/total_loss: -0.0133, train/util_ratio: 0.8750, train/run_time: 0.5563, eval/loss: 0.0413, eval/top-1-acc: 0.9880, eval/balanced_acc: 0.9882, eval/precision: 0.9877, eval/recall: 0.9882, eval/F1: 0.9879, lr: 0.0000, train/prefecth_time: 0.0040 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 14:43:17,965 INFO] 35072 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0006, train/total_loss: -0.0189, train/util_ratio: 1.0000, train/run_time: 0.5486, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 14:45:49,308 INFO] 35328 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0016, train/total_loss: -0.0128, train/util_ratio: 1.0000, train/run_time: 0.5560, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 14:48:20,601 INFO] 35584 iteration USE_EMA: False, train/sup_loss: 0.0018, train/unsup_loss: 0.1845, train/total_loss: 0.1716, train/util_ratio: 1.0000, train/run_time: 0.5648, lr: 0.0000, train/prefecth_time: 0.0067 
+[2023-07-19 14:50:51,705 INFO] 35840 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0019, train/total_loss: -0.0101, train/util_ratio: 1.0000, train/run_time: 0.5567, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 14:53:25,206 INFO] 36096 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.0003, train/total_loss: -0.0139, train/util_ratio: 1.0000, train/run_time: 0.5520, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 14:55:56,530 INFO] 36352 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.0052, train/total_loss: -0.0091, train/util_ratio: 1.0000, train/run_time: 0.5497, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 14:58:27,680 INFO] 36608 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.2708, train/total_loss: 0.2588, train/util_ratio: 1.0000, train/run_time: 0.5493, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 15:00:58,865 INFO] validating...
+[2023-07-19 15:01:08,017 INFO] confusion matrix:
+[[0.99099099 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01030928 0.         0.
+  0.98969072 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 15:01:22,082 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 15:01:22,083 INFO] 36864 iteration, USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0004, train/total_loss: -0.0114, train/util_ratio: 1.0000, train/run_time: 0.5591, eval/loss: 0.0455, eval/top-1-acc: 0.9860, eval/balanced_acc: 0.9856, eval/precision: 0.9862, eval/recall: 0.9856, eval/F1: 0.9858, lr: 0.0000, train/prefecth_time: 0.0026 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 15:03:54,998 INFO] 37120 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0005, train/total_loss: -0.0114, train/util_ratio: 0.8750, train/run_time: 0.5520, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 15:06:26,293 INFO] 37376 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.0045, train/total_loss: -0.0072, train/util_ratio: 1.0000, train/run_time: 0.5567, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 15:08:57,422 INFO] 37632 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0288, train/total_loss: 0.0168, train/util_ratio: 1.0000, train/run_time: 0.5655, lr: 0.0000, train/prefecth_time: 0.0046 
+[2023-07-19 15:11:28,737 INFO] 37888 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0004, train/total_loss: -0.0141, train/util_ratio: 1.0000, train/run_time: 0.5514, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 15:14:01,907 INFO] 38144 iteration USE_EMA: False, train/sup_loss: 0.0005, train/unsup_loss: 0.0008, train/total_loss: -0.0158, train/util_ratio: 1.0000, train/run_time: 0.5571, lr: 0.0000, train/prefecth_time: 0.0031 
+[2023-07-19 15:16:33,023 INFO] 38400 iteration USE_EMA: False, train/sup_loss: 0.0016, train/unsup_loss: 0.0215, train/total_loss: 0.0110, train/util_ratio: 1.0000, train/run_time: 0.5586, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 15:19:04,232 INFO] 38656 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0003, train/total_loss: -0.0167, train/util_ratio: 0.8750, train/run_time: 0.5511, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 15:21:35,482 INFO] validating...
+[2023-07-19 15:21:44,602 INFO] confusion matrix:
+[[0.96396396 0.         0.         0.         0.         0.
+  0.         0.         0.03603604 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.97       0.         0.03
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.00877193 0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01030928 0.         0.
+  0.98969072 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 15:21:58,670 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 15:21:58,671 INFO] 38912 iteration, USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0004, train/total_loss: -0.0116, train/util_ratio: 0.8750, train/run_time: 0.5571, eval/loss: 0.0449, eval/top-1-acc: 0.9850, eval/balanced_acc: 0.9851, eval/precision: 0.9848, eval/recall: 0.9851, eval/F1: 0.9849, lr: 0.0000, train/prefecth_time: 0.0031 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 15:24:31,607 INFO] 39168 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0005, train/total_loss: -0.0138, train/util_ratio: 0.8750, train/run_time: 0.5468, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 15:27:02,907 INFO] 39424 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0010, train/total_loss: -0.0135, train/util_ratio: 1.0000, train/run_time: 0.5587, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 15:29:34,228 INFO] 39680 iteration USE_EMA: False, train/sup_loss: 0.0006, train/unsup_loss: 0.0027, train/total_loss: -0.0138, train/util_ratio: 1.0000, train/run_time: 0.5560, lr: 0.0000, train/prefecth_time: 0.0028 
+[2023-07-19 15:32:05,301 INFO] 39936 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0016, train/total_loss: -0.0103, train/util_ratio: 1.0000, train/run_time: 0.5558, lr: 0.0000, train/prefecth_time: 0.0028 
+[2023-07-19 15:34:38,574 INFO] 40192 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0009, train/total_loss: -0.0136, train/util_ratio: 1.0000, train/run_time: 0.5593, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 15:37:09,749 INFO] 40448 iteration USE_EMA: False, train/sup_loss: 0.0006, train/unsup_loss: 0.0002, train/total_loss: -0.0138, train/util_ratio: 1.0000, train/run_time: 0.5574, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 15:39:41,018 INFO] 40704 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0005, train/total_loss: -0.0164, train/util_ratio: 0.8750, train/run_time: 0.5560, lr: 0.0000, train/prefecth_time: 0.0030 
+[2023-07-19 15:42:12,428 INFO] validating...
+[2023-07-19 15:42:21,562 INFO] confusion matrix:
+[[0.96396396 0.         0.         0.         0.         0.
+  0.         0.         0.03603604 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.01123596 0.         0.         0.         0.         0.
+  0.         0.         0.98876404 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 15:42:35,713 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 15:42:35,714 INFO] 40960 iteration, USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.3610, train/total_loss: 0.3441, train/util_ratio: 1.0000, train/run_time: 0.5559, eval/loss: 0.0534, eval/top-1-acc: 0.9850, eval/balanced_acc: 0.9852, eval/precision: 0.9846, eval/recall: 0.9852, eval/F1: 0.9848, lr: 0.0000, train/prefecth_time: 0.0034 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 15:45:08,612 INFO] 41216 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0001, train/total_loss: -0.0118, train/util_ratio: 1.0000, train/run_time: 0.5547, lr: 0.0000, train/prefecth_time: 0.0033 
+[2023-07-19 15:47:39,714 INFO] 41472 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0006, train/total_loss: -0.0139, train/util_ratio: 1.0000, train/run_time: 0.5564, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 15:50:10,892 INFO] 41728 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0009, train/total_loss: -0.0111, train/util_ratio: 1.0000, train/run_time: 0.5504, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-19 15:52:42,181 INFO] 41984 iteration USE_EMA: False, train/sup_loss: 0.0019, train/unsup_loss: 0.0005, train/total_loss: -0.0073, train/util_ratio: 1.0000, train/run_time: 0.5572, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 15:55:15,899 INFO] 42240 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0005, train/total_loss: -0.0091, train/util_ratio: 1.0000, train/run_time: 0.5628, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 15:57:47,190 INFO] 42496 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.3834, train/total_loss: 0.3716, train/util_ratio: 1.0000, train/run_time: 0.5511, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 16:00:18,687 INFO] 42752 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0008, train/total_loss: -0.0136, train/util_ratio: 1.0000, train/run_time: 0.5513, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 16:02:50,368 INFO] validating...
+[2023-07-19 16:02:59,750 INFO] confusion matrix:
+[[0.97297297 0.         0.         0.         0.         0.
+  0.         0.         0.02702703 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.00877193 0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.01123596 0.         0.         0.         0.         0.
+  0.         0.         0.98876404 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 16:03:13,540 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 16:03:13,541 INFO] 43008 iteration, USE_EMA: False, train/sup_loss: 0.0005, train/unsup_loss: 0.0010, train/total_loss: -0.0131, train/util_ratio: 1.0000, train/run_time: 0.5504, eval/loss: 0.0490, eval/top-1-acc: 0.9860, eval/balanced_acc: 0.9861, eval/precision: 0.9857, eval/recall: 0.9861, eval/F1: 0.9859, lr: 0.0000, train/prefecth_time: 0.0033 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 16:05:47,328 INFO] 43264 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0262, train/total_loss: 0.0166, train/util_ratio: 1.0000, train/run_time: 0.5498, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 16:08:19,104 INFO] 43520 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0395, train/total_loss: 0.0250, train/util_ratio: 1.0000, train/run_time: 0.5591, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 16:10:50,831 INFO] 43776 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0009, train/total_loss: -0.0112, train/util_ratio: 1.0000, train/run_time: 0.5569, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-19 16:13:22,515 INFO] 44032 iteration USE_EMA: False, train/sup_loss: 0.0008, train/unsup_loss: 0.0114, train/total_loss: 0.0001, train/util_ratio: 1.0000, train/run_time: 0.5541, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 16:15:56,957 INFO] 44288 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0429, train/total_loss: 0.0334, train/util_ratio: 1.0000, train/run_time: 0.5502, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 16:18:28,564 INFO] 44544 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0023, train/total_loss: -0.0096, train/util_ratio: 1.0000, train/run_time: 0.5499, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 16:20:59,894 INFO] 44800 iteration USE_EMA: False, train/sup_loss: 0.0005, train/unsup_loss: 0.0025, train/total_loss: -0.0091, train/util_ratio: 1.0000, train/run_time: 0.5512, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 16:23:31,336 INFO] validating...
+[2023-07-19 16:23:40,756 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.95       0.         0.05
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.00877193 0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.0326087  0.         0.9673913
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.98989899 0.         0.01010101]
+ [0.01123596 0.         0.         0.         0.         0.
+  0.         0.         0.98876404 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 16:23:54,469 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 16:23:54,471 INFO] 45056 iteration, USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0003, train/total_loss: -0.0166, train/util_ratio: 0.7500, train/run_time: 0.5566, eval/loss: 0.0545, eval/top-1-acc: 0.9850, eval/balanced_acc: 0.9849, eval/precision: 0.9848, eval/recall: 0.9849, eval/F1: 0.9848, lr: 0.0000, train/prefecth_time: 0.0030 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 16:26:28,598 INFO] 45312 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0024, train/total_loss: -0.0096, train/util_ratio: 1.0000, train/run_time: 0.5583, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 16:29:00,359 INFO] 45568 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0027, train/total_loss: -0.0118, train/util_ratio: 1.0000, train/run_time: 0.5595, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 16:31:32,048 INFO] 45824 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.2386, train/total_loss: 0.2241, train/util_ratio: 1.0000, train/run_time: 0.5523, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 16:34:03,546 INFO] 46080 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0018, train/total_loss: -0.0128, train/util_ratio: 1.0000, train/run_time: 0.5541, lr: 0.0000, train/prefecth_time: 0.0030 
+[2023-07-19 16:36:37,708 INFO] 46336 iteration USE_EMA: False, train/sup_loss: 0.0009, train/unsup_loss: 0.0002, train/total_loss: -0.0085, train/util_ratio: 1.0000, train/run_time: 0.5508, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 16:39:09,400 INFO] 46592 iteration USE_EMA: False, train/sup_loss: 0.0007, train/unsup_loss: 0.0028, train/total_loss: -0.0086, train/util_ratio: 1.0000, train/run_time: 0.5518, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 16:41:40,672 INFO] 46848 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0005, train/total_loss: -0.0164, train/util_ratio: 1.0000, train/run_time: 0.5515, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 16:44:12,049 INFO] validating...
+[2023-07-19 16:44:21,435 INFO] confusion matrix:
+[[0.99099099 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.         0.95       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.00877193 0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.01010101 0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 16:44:35,194 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 16:44:35,195 INFO] 47104 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0119, train/util_ratio: 1.0000, train/run_time: 0.5536, eval/loss: 0.0529, eval/top-1-acc: 0.9850, eval/balanced_acc: 0.9847, eval/precision: 0.9853, eval/recall: 0.9847, eval/F1: 0.9849, lr: 0.0000, train/prefecth_time: 0.0034 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 16:47:08,883 INFO] 47360 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.0002, train/total_loss: -0.0091, train/util_ratio: 1.0000, train/run_time: 0.5593, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 16:49:40,418 INFO] 47616 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0791, train/total_loss: 0.0671, train/util_ratio: 1.0000, train/run_time: 0.5508, lr: 0.0000, train/prefecth_time: 0.0029 
+[2023-07-19 16:52:12,009 INFO] 47872 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0009, train/total_loss: -0.0136, train/util_ratio: 1.0000, train/run_time: 0.5488, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 16:54:43,360 INFO] 48128 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0025, train/total_loss: -0.0094, train/util_ratio: 1.0000, train/run_time: 0.5614, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 16:57:17,477 INFO] 48384 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0006, train/total_loss: -0.0114, train/util_ratio: 1.0000, train/run_time: 0.5618, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 16:59:48,875 INFO] 48640 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0027, train/total_loss: -0.0094, train/util_ratio: 1.0000, train/run_time: 0.5569, lr: 0.0000, train/prefecth_time: 0.0064 
+[2023-07-19 17:02:20,393 INFO] 48896 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.1805, train/total_loss: 0.1636, train/util_ratio: 0.8750, train/run_time: 0.5546, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 17:04:51,893 INFO] validating...
+[2023-07-19 17:05:01,282 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 17:05:15,115 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 17:05:15,116 INFO] 49152 iteration, USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0019, train/total_loss: -0.0099, train/util_ratio: 1.0000, train/run_time: 0.5524, eval/loss: 0.0414, eval/top-1-acc: 0.9870, eval/balanced_acc: 0.9869, eval/precision: 0.9869, eval/recall: 0.9869, eval/F1: 0.9868, lr: 0.0000, train/prefecth_time: 0.0039 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 17:07:49,004 INFO] 49408 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0285, train/total_loss: 0.0166, train/util_ratio: 1.0000, train/run_time: 0.5521, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 17:10:20,572 INFO] 49664 iteration USE_EMA: False, train/sup_loss: 0.0008, train/unsup_loss: 0.5797, train/total_loss: 0.5684, train/util_ratio: 1.0000, train/run_time: 0.5513, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 17:12:52,088 INFO] 49920 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0002, train/total_loss: -0.0143, train/util_ratio: 0.8750, train/run_time: 0.5510, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 17:15:23,313 INFO] 50176 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0009, train/total_loss: -0.0087, train/util_ratio: 1.0000, train/run_time: 0.5501, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 17:17:57,492 INFO] 50432 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.4138, train/total_loss: 0.4018, train/util_ratio: 1.0000, train/run_time: 0.5518, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 17:20:28,872 INFO] 50688 iteration USE_EMA: False, train/sup_loss: 0.0004, train/unsup_loss: 0.0025, train/total_loss: -0.0092, train/util_ratio: 1.0000, train/run_time: 0.5554, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 17:23:00,616 INFO] 50944 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0003, train/total_loss: -0.0142, train/util_ratio: 1.0000, train/run_time: 0.5590, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 17:25:31,863 INFO] validating...
+[2023-07-19 17:25:41,281 INFO] confusion matrix:
+[[0.99099099 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 17:25:55,034 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 17:25:55,035 INFO] 51200 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0015, train/total_loss: -0.0081, train/util_ratio: 0.8750, train/run_time: 0.5489, eval/loss: 0.0448, eval/top-1-acc: 0.9870, eval/balanced_acc: 0.9867, eval/precision: 0.9872, eval/recall: 0.9867, eval/F1: 0.9868, lr: 0.0000, train/prefecth_time: 0.0028 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 17:28:28,969 INFO] 51456 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0144, train/util_ratio: 1.0000, train/run_time: 0.5583, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 17:31:00,561 INFO] 51712 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0122, train/total_loss: 0.0003, train/util_ratio: 1.0000, train/run_time: 0.5504, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-19 17:33:32,172 INFO] 51968 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.3403, train/total_loss: 0.3260, train/util_ratio: 0.8750, train/run_time: 0.5573, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 17:36:03,931 INFO] 52224 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0011, train/total_loss: -0.0159, train/util_ratio: 1.0000, train/run_time: 0.5528, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 17:38:38,309 INFO] 52480 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0004, train/total_loss: -0.0115, train/util_ratio: 1.0000, train/run_time: 0.5558, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 17:41:09,865 INFO] 52736 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0093, train/util_ratio: 1.0000, train/run_time: 0.5500, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 17:43:41,725 INFO] 52992 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0029, train/total_loss: -0.0115, train/util_ratio: 1.0000, train/run_time: 0.5535, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 17:46:13,376 INFO] validating...
+[2023-07-19 17:46:22,775 INFO] confusion matrix:
+[[0.99099099 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.97       0.         0.03
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.01123596 0.         0.         0.         0.         0.
+  0.         0.         0.98876404 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 17:46:36,621 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 17:46:36,622 INFO] 53248 iteration, USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0003, train/total_loss: -0.0141, train/util_ratio: 1.0000, train/run_time: 0.5511, eval/loss: 0.0387, eval/top-1-acc: 0.9900, eval/balanced_acc: 0.9899, eval/precision: 0.9898, eval/recall: 0.9899, eval/F1: 0.9898, lr: 0.0000, train/prefecth_time: 0.0034 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 17:49:10,574 INFO] 53504 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0011, train/total_loss: -0.0133, train/util_ratio: 1.0000, train/run_time: 0.5527, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 17:51:42,208 INFO] 53760 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0006, train/total_loss: -0.0114, train/util_ratio: 1.0000, train/run_time: 0.5588, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 17:54:14,089 INFO] 54016 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0039, train/total_loss: -0.0057, train/util_ratio: 1.0000, train/run_time: 0.5550, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 17:56:45,714 INFO] 54272 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.2149, train/total_loss: 0.2031, train/util_ratio: 1.0000, train/run_time: 0.5595, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 17:59:20,147 INFO] 54528 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.3742, train/total_loss: 0.3571, train/util_ratio: 1.0000, train/run_time: 0.5521, lr: 0.0000, train/prefecth_time: 0.0028 
+[2023-07-19 18:01:51,823 INFO] 54784 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0005, train/total_loss: -0.0139, train/util_ratio: 1.0000, train/run_time: 0.5583, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 18:04:23,742 INFO] 55040 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0069, train/util_ratio: 1.0000, train/run_time: 0.5651, lr: 0.0000, train/prefecth_time: 0.0032 
+[2023-07-19 18:06:55,450 INFO] validating...
+[2023-07-19 18:07:04,842 INFO] confusion matrix:
+[[0.99099099 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.         0.97       0.         0.02
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.00877193 0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.01030928 0.         0.         0.
+  0.98969072 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 18:07:18,603 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 18:07:18,604 INFO] 55296 iteration, USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0124, train/total_loss: -0.0019, train/util_ratio: 1.0000, train/run_time: 0.5592, eval/loss: 0.0425, eval/top-1-acc: 0.9860, eval/balanced_acc: 0.9856, eval/precision: 0.9866, eval/recall: 0.9856, eval/F1: 0.9861, lr: 0.0000, train/prefecth_time: 0.0038 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 18:09:52,658 INFO] 55552 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0120, train/util_ratio: 1.0000, train/run_time: 0.5538, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 18:12:24,387 INFO] 55808 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0037, train/total_loss: -0.0084, train/util_ratio: 1.0000, train/run_time: 0.5613, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 18:14:56,422 INFO] 56064 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0013, train/total_loss: -0.0107, train/util_ratio: 1.0000, train/run_time: 0.5525, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 18:17:28,150 INFO] 56320 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0088, train/total_loss: -0.0082, train/util_ratio: 1.0000, train/run_time: 0.5575, lr: 0.0000, train/prefecth_time: 0.0031 
+[2023-07-19 18:20:02,638 INFO] 56576 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.5236, train/total_loss: 0.5117, train/util_ratio: 1.0000, train/run_time: 0.5496, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 18:22:34,148 INFO] 56832 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0036, train/total_loss: -0.0133, train/util_ratio: 1.0000, train/run_time: 0.5568, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 18:25:05,756 INFO] 57088 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.2617, train/total_loss: 0.2448, train/util_ratio: 0.8750, train/run_time: 0.5565, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-19 18:27:37,602 INFO] validating...
+[2023-07-19 18:27:47,009 INFO] confusion matrix:
+[[0.99099099 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.98       0.         0.02
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.00877193 0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.01010101 0.         0.
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 18:28:00,794 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 18:28:00,796 INFO] 57344 iteration, USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0005, train/total_loss: -0.0091, train/util_ratio: 1.0000, train/run_time: 0.5536, eval/loss: 0.0376, eval/top-1-acc: 0.9900, eval/balanced_acc: 0.9898, eval/precision: 0.9901, eval/recall: 0.9898, eval/F1: 0.9899, lr: 0.0000, train/prefecth_time: 0.0034 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 18:30:34,920 INFO] 57600 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0003, train/total_loss: -0.0142, train/util_ratio: 1.0000, train/run_time: 0.5502, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 18:33:06,672 INFO] 57856 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0004, train/total_loss: -0.0141, train/util_ratio: 1.0000, train/run_time: 0.5586, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 18:35:38,444 INFO] 58112 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0033, train/total_loss: -0.0113, train/util_ratio: 1.0000, train/run_time: 0.5528, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 18:38:10,396 INFO] 58368 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0005, train/total_loss: -0.0115, train/util_ratio: 1.0000, train/run_time: 0.5525, lr: 0.0000, train/prefecth_time: 0.0033 
+[2023-07-19 18:40:44,843 INFO] 58624 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0016, train/total_loss: -0.0128, train/util_ratio: 1.0000, train/run_time: 0.5606, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 18:43:16,623 INFO] 58880 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0037, train/total_loss: -0.0106, train/util_ratio: 1.0000, train/run_time: 0.5582, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 18:45:48,365 INFO] 59136 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0005, train/total_loss: -0.0139, train/util_ratio: 1.0000, train/run_time: 0.5569, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-19 18:48:20,334 INFO] validating...
+[2023-07-19 18:48:29,729 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.97       0.         0.03
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 18:48:43,517 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 18:48:43,519 INFO] 59392 iteration, USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0002, train/total_loss: -0.0119, train/util_ratio: 1.0000, train/run_time: 0.5512, eval/loss: 0.0393, eval/top-1-acc: 0.9880, eval/balanced_acc: 0.9879, eval/precision: 0.9878, eval/recall: 0.9879, eval/F1: 0.9878, lr: 0.0000, train/prefecth_time: 0.0037 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 18:51:17,706 INFO] 59648 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0387, train/total_loss: 0.0267, train/util_ratio: 1.0000, train/run_time: 0.5570, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 18:53:49,483 INFO] 59904 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0004, train/total_loss: -0.0067, train/util_ratio: 1.0000, train/run_time: 0.5594, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 18:56:21,276 INFO] 60160 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0003, train/total_loss: -0.0142, train/util_ratio: 1.0000, train/run_time: 0.5587, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 18:58:53,155 INFO] 60416 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0073, train/total_loss: 0.0003, train/util_ratio: 1.0000, train/run_time: 0.5528, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 19:01:27,507 INFO] 60672 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0118, train/util_ratio: 1.0000, train/run_time: 0.5541, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 19:03:59,269 INFO] 60928 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0063, train/total_loss: -0.0007, train/util_ratio: 1.0000, train/run_time: 0.5582, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 19:06:30,904 INFO] 61184 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0063, train/total_loss: -0.0057, train/util_ratio: 1.0000, train/run_time: 0.5598, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 19:09:02,714 INFO] validating...
+[2023-07-19 19:09:12,073 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.01030928 0.         0.         0.
+  0.98969072 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 19:09:25,794 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 19:09:25,796 INFO] 61440 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.1238, train/total_loss: 0.1117, train/util_ratio: 1.0000, train/run_time: 0.5658, eval/loss: 0.0437, eval/top-1-acc: 0.9840, eval/balanced_acc: 0.9837, eval/precision: 0.9840, eval/recall: 0.9837, eval/F1: 0.9838, lr: 0.0000, train/prefecth_time: 0.0032 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 19:12:00,041 INFO] 61696 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0014, train/total_loss: -0.0107, train/util_ratio: 1.0000, train/run_time: 0.5574, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 19:14:31,924 INFO] 61952 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0024, train/total_loss: -0.0095, train/util_ratio: 1.0000, train/run_time: 0.5568, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-19 19:17:03,654 INFO] 62208 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0005, train/total_loss: -0.0140, train/util_ratio: 0.8750, train/run_time: 0.5472, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 19:19:35,442 INFO] 62464 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0118, train/util_ratio: 1.0000, train/run_time: 0.5571, lr: 0.0000, train/prefecth_time: 0.0032 
+[2023-07-19 19:22:09,618 INFO] 62720 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0040, train/total_loss: -0.0106, train/util_ratio: 1.0000, train/run_time: 0.5500, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 19:24:40,747 INFO] 62976 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0027, train/total_loss: -0.0093, train/util_ratio: 1.0000, train/run_time: 0.5493, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 19:27:11,937 INFO] 63232 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0170, train/util_ratio: 0.7500, train/run_time: 0.5476, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 19:29:42,875 INFO] validating...
+[2023-07-19 19:29:51,986 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.98       0.         0.02
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.00877193 0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.01030928 0.         0.         0.
+  0.98969072 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.98989899 0.         0.01010101]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 19:30:05,798 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 19:30:05,799 INFO] 63488 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0010, train/total_loss: -0.0086, train/util_ratio: 1.0000, train/run_time: 0.5507, eval/loss: 0.0370, eval/top-1-acc: 0.9880, eval/balanced_acc: 0.9879, eval/precision: 0.9879, eval/recall: 0.9879, eval/F1: 0.9879, lr: 0.0000, train/prefecth_time: 0.0034 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 19:32:38,855 INFO] 63744 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0006, train/total_loss: -0.0090, train/util_ratio: 1.0000, train/run_time: 0.5529, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 19:35:09,610 INFO] 64000 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0033, train/total_loss: -0.0113, train/util_ratio: 1.0000, train/run_time: 0.5501, lr: 0.0000, train/prefecth_time: 0.0033 
+[2023-07-19 19:37:40,279 INFO] 64256 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0006, train/total_loss: -0.0139, train/util_ratio: 1.0000, train/run_time: 0.5483, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 19:40:11,096 INFO] 64512 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0095, train/util_ratio: 1.0000, train/run_time: 0.5508, lr: 0.0000, train/prefecth_time: 0.0094 
+[2023-07-19 19:42:44,366 INFO] 64768 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0118, train/util_ratio: 1.0000, train/run_time: 0.5494, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 19:45:15,161 INFO] 65024 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0004, train/total_loss: -0.0117, train/util_ratio: 1.0000, train/run_time: 0.5500, lr: 0.0000, train/prefecth_time: 0.0033 
+[2023-07-19 19:47:45,893 INFO] 65280 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0007, train/total_loss: -0.0089, train/util_ratio: 1.0000, train/run_time: 0.5498, lr: 0.0000, train/prefecth_time: 0.0033 
+[2023-07-19 19:50:16,471 INFO] validating...
+[2023-07-19 19:50:25,868 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.98       0.         0.02
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.00877193 0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.01030928 0.         0.         0.
+  0.98969072 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 19:50:39,916 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 19:50:39,918 INFO] 65536 iteration, USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0013, train/total_loss: -0.0108, train/util_ratio: 1.0000, train/run_time: 0.5598, eval/loss: 0.0402, eval/top-1-acc: 0.9870, eval/balanced_acc: 0.9869, eval/precision: 0.9870, eval/recall: 0.9869, eval/F1: 0.9869, lr: 0.0000, train/prefecth_time: 0.0037 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 19:53:12,081 INFO] 65792 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0023, train/total_loss: -0.0122, train/util_ratio: 1.0000, train/run_time: 0.5557, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 19:55:42,856 INFO] 66048 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0118, train/util_ratio: 1.0000, train/run_time: 0.5585, lr: 0.0000, train/prefecth_time: 0.0030 
+[2023-07-19 19:58:13,709 INFO] 66304 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0006, train/total_loss: -0.0138, train/util_ratio: 1.0000, train/run_time: 0.5563, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 20:00:44,428 INFO] 66560 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0012, train/total_loss: -0.0134, train/util_ratio: 1.0000, train/run_time: 0.5506, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 20:03:17,356 INFO] 66816 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0170, train/util_ratio: 1.0000, train/run_time: 0.5518, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 20:05:47,904 INFO] 67072 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0119, train/util_ratio: 1.0000, train/run_time: 0.5554, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 20:08:18,463 INFO] 67328 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0004, train/total_loss: -0.0116, train/util_ratio: 1.0000, train/run_time: 0.5499, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 20:10:48,995 INFO] validating...
+[2023-07-19 20:10:58,080 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.         0.92       0.         0.07
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.01086957 0.         0.98913043
+  0.         0.         0.         0.        ]
+ [0.         0.         0.01030928 0.         0.         0.
+  0.98969072 0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 20:11:11,970 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 20:11:11,972 INFO] 67584 iteration, USE_EMA: False, train/sup_loss: 0.0005, train/unsup_loss: 0.8602, train/total_loss: 0.8461, train/util_ratio: 1.0000, train/run_time: 0.5535, eval/loss: 0.0589, eval/top-1-acc: 0.9810, eval/balanced_acc: 0.9808, eval/precision: 0.9814, eval/recall: 0.9808, eval/F1: 0.9808, lr: 0.0000, train/prefecth_time: 0.0034 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 20:13:44,910 INFO] 67840 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0001, train/total_loss: -0.0143, train/util_ratio: 1.0000, train/run_time: 0.5543, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 20:16:15,437 INFO] 68096 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0007, train/total_loss: -0.0111, train/util_ratio: 1.0000, train/run_time: 0.5546, lr: 0.0000, train/prefecth_time: 0.0032 
+[2023-07-19 20:18:45,737 INFO] 68352 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0389, train/total_loss: 0.0268, train/util_ratio: 1.0000, train/run_time: 0.5576, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-19 20:21:16,223 INFO] 68608 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0003, train/total_loss: -0.0091, train/util_ratio: 1.0000, train/run_time: 0.5577, lr: 0.0000, train/prefecth_time: 0.0032 
+[2023-07-19 20:23:48,535 INFO] 68864 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0009, train/total_loss: -0.0135, train/util_ratio: 1.0000, train/run_time: 0.5487, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 20:26:19,001 INFO] 69120 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0042, train/total_loss: -0.0079, train/util_ratio: 1.0000, train/run_time: 0.5560, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 20:28:49,720 INFO] 69376 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0007, train/total_loss: -0.0064, train/util_ratio: 1.0000, train/run_time: 0.5528, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 20:31:20,080 INFO] validating...
+[2023-07-19 20:31:29,191 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.00877193 0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 20:31:42,900 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 20:31:42,901 INFO] 69632 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0015, train/total_loss: -0.0156, train/util_ratio: 0.8750, train/run_time: 0.5461, eval/loss: 0.0409, eval/top-1-acc: 0.9850, eval/balanced_acc: 0.9848, eval/precision: 0.9850, eval/recall: 0.9848, eval/F1: 0.9848, lr: 0.0000, train/prefecth_time: 0.0033 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 20:34:14,968 INFO] 69888 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0007, train/total_loss: -0.0113, train/util_ratio: 0.8750, train/run_time: 0.5484, lr: 0.0000, train/prefecth_time: 0.0032 
+[2023-07-19 20:36:45,445 INFO] 70144 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0039, train/total_loss: -0.0106, train/util_ratio: 1.0000, train/run_time: 0.5535, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 20:39:15,873 INFO] 70400 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0010, train/total_loss: -0.0085, train/util_ratio: 1.0000, train/run_time: 0.5510, lr: 0.0000, train/prefecth_time: 0.0043 
+[2023-07-19 20:41:46,259 INFO] 70656 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0023, train/total_loss: -0.0122, train/util_ratio: 0.8750, train/run_time: 0.5479, lr: 0.0000, train/prefecth_time: 0.0032 
+[2023-07-19 20:44:19,006 INFO] 70912 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0095, train/util_ratio: 1.0000, train/run_time: 0.5567, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 20:46:50,062 INFO] 71168 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0252, train/total_loss: 0.0106, train/util_ratio: 1.0000, train/run_time: 0.5593, lr: 0.0000, train/prefecth_time: 0.0032 
+[2023-07-19 20:49:20,836 INFO] 71424 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0211, train/total_loss: 0.0065, train/util_ratio: 1.0000, train/run_time: 0.5502, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 20:51:51,772 INFO] validating...
+[2023-07-19 20:52:00,957 INFO] confusion matrix:
+[[0.99099099 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.97       0.         0.03
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.00877193 0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 20:52:14,767 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 20:52:14,768 INFO] 71680 iteration, USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0003, train/total_loss: -0.0118, train/util_ratio: 1.0000, train/run_time: 0.5492, eval/loss: 0.0439, eval/top-1-acc: 0.9870, eval/balanced_acc: 0.9867, eval/precision: 0.9872, eval/recall: 0.9867, eval/F1: 0.9869, lr: 0.0000, train/prefecth_time: 0.0034 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 20:54:47,085 INFO] 71936 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0169, train/util_ratio: 1.0000, train/run_time: 0.5539, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 20:57:17,511 INFO] 72192 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0008, train/total_loss: -0.0112, train/util_ratio: 1.0000, train/run_time: 0.5546, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 20:59:48,122 INFO] 72448 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.4643, train/total_loss: 0.4497, train/util_ratio: 1.0000, train/run_time: 0.5488, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 21:02:18,671 INFO] 72704 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0039, train/total_loss: -0.0082, train/util_ratio: 1.0000, train/run_time: 0.5564, lr: 0.0000, train/prefecth_time: 0.0033 
+[2023-07-19 21:04:51,165 INFO] 72960 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0026, train/total_loss: -0.0119, train/util_ratio: 1.0000, train/run_time: 0.5548, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 21:07:21,770 INFO] 73216 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0007, train/total_loss: -0.0113, train/util_ratio: 1.0000, train/run_time: 0.5617, lr: 0.0000, train/prefecth_time: 0.0045 
+[2023-07-19 21:09:52,201 INFO] 73472 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0001, train/total_loss: -0.0120, train/util_ratio: 1.0000, train/run_time: 0.5546, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 21:12:22,857 INFO] validating...
+[2023-07-19 21:12:31,973 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 21:12:45,669 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 21:12:45,670 INFO] 73728 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0062, train/total_loss: -0.0059, train/util_ratio: 1.0000, train/run_time: 0.5561, eval/loss: 0.0372, eval/top-1-acc: 0.9860, eval/balanced_acc: 0.9859, eval/precision: 0.9859, eval/recall: 0.9859, eval/F1: 0.9858, lr: 0.0000, train/prefecth_time: 0.0033 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 21:15:18,177 INFO] 73984 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0012, train/total_loss: -0.0109, train/util_ratio: 1.0000, train/run_time: 0.5545, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 21:17:48,944 INFO] 74240 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0009, train/total_loss: -0.0136, train/util_ratio: 1.0000, train/run_time: 0.5506, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 21:20:19,488 INFO] 74496 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0005, train/total_loss: -0.0141, train/util_ratio: 1.0000, train/run_time: 0.5474, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 21:22:50,106 INFO] 74752 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0006, train/total_loss: -0.0115, train/util_ratio: 1.0000, train/run_time: 0.5565, lr: 0.0000, train/prefecth_time: 0.0030 
+[2023-07-19 21:25:22,639 INFO] 75008 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0010, train/total_loss: -0.0111, train/util_ratio: 1.0000, train/run_time: 0.5557, lr: 0.0000, train/prefecth_time: 0.0025 
+[2023-07-19 21:27:53,709 INFO] 75264 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0004, train/total_loss: -0.0166, train/util_ratio: 1.0000, train/run_time: 0.5489, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-19 21:30:24,824 INFO] 75520 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0006, train/total_loss: -0.0064, train/util_ratio: 1.0000, train/run_time: 0.5581, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 21:32:55,600 INFO] validating...
+[2023-07-19 21:33:04,765 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.94       0.         0.06
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 21:33:18,421 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 21:33:18,422 INFO] 75776 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0241, train/total_loss: 0.0120, train/util_ratio: 1.0000, train/run_time: 0.5507, eval/loss: 0.0474, eval/top-1-acc: 0.9840, eval/balanced_acc: 0.9839, eval/precision: 0.9840, eval/recall: 0.9839, eval/F1: 0.9838, lr: 0.0000, train/prefecth_time: 0.0034 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 21:35:50,660 INFO] 76032 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0099, train/total_loss: -0.0045, train/util_ratio: 0.8750, train/run_time: 0.5491, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 21:38:21,024 INFO] 76288 iteration USE_EMA: False, train/sup_loss: 0.0005, train/unsup_loss: 0.0027, train/total_loss: -0.0089, train/util_ratio: 1.0000, train/run_time: 0.5543, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-19 21:40:51,421 INFO] 76544 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0127, train/total_loss: 0.0007, train/util_ratio: 1.0000, train/run_time: 0.5559, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 21:43:21,869 INFO] 76800 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0004, train/total_loss: -0.0116, train/util_ratio: 1.0000, train/run_time: 0.5538, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 21:45:54,370 INFO] 77056 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0007, train/total_loss: -0.0114, train/util_ratio: 1.0000, train/run_time: 0.5576, lr: 0.0000, train/prefecth_time: 0.0032 
+[2023-07-19 21:48:24,935 INFO] 77312 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0001, train/total_loss: -0.0117, train/util_ratio: 1.0000, train/run_time: 0.5545, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 21:50:55,455 INFO] 77568 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0065, train/total_loss: -0.0081, train/util_ratio: 1.0000, train/run_time: 0.5595, lr: 0.0000, train/prefecth_time: 0.0137 
+[2023-07-19 21:53:25,498 INFO] validating...
+[2023-07-19 21:53:34,574 INFO] confusion matrix:
+[[0.99099099 0.         0.         0.         0.         0.
+  0.         0.         0.00900901 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.01086957 0.01086957 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.04494382 0.         0.         0.         0.         0.
+  0.         0.         0.95505618 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 21:53:48,441 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 21:53:48,442 INFO] 77824 iteration, USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0011, train/total_loss: -0.0109, train/util_ratio: 1.0000, train/run_time: 0.5583, eval/loss: 0.0479, eval/top-1-acc: 0.9850, eval/balanced_acc: 0.9845, eval/precision: 0.9854, eval/recall: 0.9845, eval/F1: 0.9849, lr: 0.0000, train/prefecth_time: 0.0076 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 21:56:20,221 INFO] 78080 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0014, train/total_loss: -0.0107, train/util_ratio: 1.0000, train/run_time: 0.5510, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 21:58:50,265 INFO] 78336 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0045, train/total_loss: -0.0125, train/util_ratio: 1.0000, train/run_time: 0.5552, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 22:01:20,989 INFO] 78592 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0000, train/total_loss: -0.0170, train/util_ratio: 1.0000, train/run_time: 0.5576, lr: 0.0000, train/prefecth_time: 0.0033 
+[2023-07-19 22:03:52,325 INFO] 78848 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0280, train/total_loss: 0.0159, train/util_ratio: 1.0000, train/run_time: 0.5585, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 22:06:25,704 INFO] 79104 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0032, train/total_loss: -0.0114, train/util_ratio: 0.8750, train/run_time: 0.5590, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-19 22:08:57,615 INFO] 79360 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0018, train/total_loss: -0.0127, train/util_ratio: 1.0000, train/run_time: 0.5604, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 22:11:29,281 INFO] 79616 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0002, train/total_loss: -0.0142, train/util_ratio: 1.0000, train/run_time: 0.5504, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 22:14:00,815 INFO] validating...
+[2023-07-19 22:14:09,989 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 22:14:24,475 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 22:14:24,476 INFO] 79872 iteration, USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0005, train/total_loss: -0.0090, train/util_ratio: 1.0000, train/run_time: 0.5591, eval/loss: 0.0453, eval/top-1-acc: 0.9850, eval/balanced_acc: 0.9848, eval/precision: 0.9850, eval/recall: 0.9848, eval/F1: 0.9848, lr: 0.0000, train/prefecth_time: 0.0035 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 22:16:57,722 INFO] 80128 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0095, train/util_ratio: 1.0000, train/run_time: 0.5590, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 22:19:30,194 INFO] 80384 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0083, train/total_loss: -0.0013, train/util_ratio: 1.0000, train/run_time: 0.5599, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 22:22:02,446 INFO] 80640 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0004, train/total_loss: -0.0166, train/util_ratio: 1.0000, train/run_time: 0.5616, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 22:24:34,614 INFO] 80896 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0009, train/total_loss: -0.0112, train/util_ratio: 1.0000, train/run_time: 0.5597, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 22:27:08,762 INFO] 81152 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0003, train/total_loss: -0.0116, train/util_ratio: 1.0000, train/run_time: 0.5590, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 22:29:41,235 INFO] 81408 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0145, train/util_ratio: 0.8750, train/run_time: 0.5568, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 22:32:13,705 INFO] 81664 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0095, train/util_ratio: 1.0000, train/run_time: 0.5563, lr: 0.0000, train/prefecth_time: 0.0033 
+[2023-07-19 22:34:46,133 INFO] validating...
+[2023-07-19 22:34:55,378 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 22:35:10,080 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 22:35:10,081 INFO] 81920 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0119, train/util_ratio: 1.0000, train/run_time: 0.5516, eval/loss: 0.0439, eval/top-1-acc: 0.9860, eval/balanced_acc: 0.9859, eval/precision: 0.9859, eval/recall: 0.9859, eval/F1: 0.9858, lr: 0.0000, train/prefecth_time: 0.0039 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 22:37:44,070 INFO] 82176 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0119, train/util_ratio: 1.0000, train/run_time: 0.5594, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 22:40:16,330 INFO] 82432 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0006, train/total_loss: -0.0114, train/util_ratio: 1.0000, train/run_time: 0.5557, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 22:42:48,554 INFO] 82688 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0119, train/util_ratio: 1.0000, train/run_time: 0.5539, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 22:45:20,782 INFO] 82944 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0003, train/total_loss: -0.0118, train/util_ratio: 1.0000, train/run_time: 0.5599, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 22:47:55,102 INFO] 83200 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0212, train/total_loss: 0.0116, train/util_ratio: 1.0000, train/run_time: 0.5579, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 22:50:27,278 INFO] 83456 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0620, train/total_loss: 0.0549, train/util_ratio: 1.0000, train/run_time: 0.5513, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 22:52:59,568 INFO] 83712 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0033, train/total_loss: -0.0088, train/util_ratio: 1.0000, train/run_time: 0.5593, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-19 22:55:31,801 INFO] validating...
+[2023-07-19 22:55:40,982 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.99       0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.01123596 0.         0.         0.         0.         0.
+  0.         0.         0.98876404 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 22:55:55,287 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 22:55:55,288 INFO] 83968 iteration, USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0000, train/total_loss: -0.0145, train/util_ratio: 1.0000, train/run_time: 0.5631, eval/loss: 0.0478, eval/top-1-acc: 0.9880, eval/balanced_acc: 0.9880, eval/precision: 0.9877, eval/recall: 0.9880, eval/F1: 0.9878, lr: 0.0000, train/prefecth_time: 0.0035 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 22:58:29,517 INFO] 84224 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0007, train/total_loss: -0.0139, train/util_ratio: 1.0000, train/run_time: 0.5586, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 23:01:01,920 INFO] 84480 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0011, train/total_loss: -0.0110, train/util_ratio: 1.0000, train/run_time: 0.5607, lr: 0.0000, train/prefecth_time: 0.0029 
+[2023-07-19 23:03:34,127 INFO] 84736 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0119, train/util_ratio: 1.0000, train/run_time: 0.5528, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 23:06:06,171 INFO] 84992 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0001, train/total_loss: -0.0120, train/util_ratio: 1.0000, train/run_time: 0.5583, lr: 0.0000, train/prefecth_time: 0.0030 
+[2023-07-19 23:08:40,532 INFO] 85248 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.2023, train/total_loss: 0.1903, train/util_ratio: 1.0000, train/run_time: 0.5619, lr: 0.0000, train/prefecth_time: 0.0045 
+[2023-07-19 23:11:12,639 INFO] 85504 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0009, train/total_loss: -0.0137, train/util_ratio: 1.0000, train/run_time: 0.5573, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-19 23:13:45,042 INFO] 85760 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0005, train/total_loss: -0.0115, train/util_ratio: 1.0000, train/run_time: 0.5603, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-19 23:16:17,241 INFO] validating...
+[2023-07-19 23:16:26,401 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.         0.97       0.         0.02
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 23:16:40,627 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 23:16:40,628 INFO] 86016 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0095, train/util_ratio: 1.0000, train/run_time: 0.5578, eval/loss: 0.0460, eval/top-1-acc: 0.9860, eval/balanced_acc: 0.9858, eval/precision: 0.9862, eval/recall: 0.9858, eval/F1: 0.9859, lr: 0.0000, train/prefecth_time: 0.0035 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 23:19:14,708 INFO] 86272 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0002, train/total_loss: -0.0119, train/util_ratio: 1.0000, train/run_time: 0.5584, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 23:21:47,111 INFO] 86528 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.5729, train/total_loss: 0.5584, train/util_ratio: 0.8750, train/run_time: 0.5527, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 23:24:19,509 INFO] 86784 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0003, train/total_loss: -0.0093, train/util_ratio: 1.0000, train/run_time: 0.5598, lr: 0.0000, train/prefecth_time: 0.0031 
+[2023-07-19 23:26:51,666 INFO] 87040 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0004, train/total_loss: -0.0167, train/util_ratio: 1.0000, train/run_time: 0.5593, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-19 23:29:25,818 INFO] 87296 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0028, train/total_loss: -0.0092, train/util_ratio: 1.0000, train/run_time: 0.5596, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 23:31:58,150 INFO] 87552 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0003, train/total_loss: -0.0142, train/util_ratio: 1.0000, train/run_time: 0.5558, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 23:34:30,498 INFO] 87808 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0001, train/total_loss: -0.0120, train/util_ratio: 1.0000, train/run_time: 0.5585, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-19 23:37:02,510 INFO] validating...
+[2023-07-19 23:37:11,698 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.96       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.01123596 0.         0.         0.         0.         0.
+  0.         0.         0.98876404 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 23:37:26,095 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 23:37:26,098 INFO] 88064 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0710, train/total_loss: 0.0514, train/util_ratio: 1.0000, train/run_time: 0.5592, eval/loss: 0.0480, eval/top-1-acc: 0.9870, eval/balanced_acc: 0.9870, eval/precision: 0.9869, eval/recall: 0.9870, eval/F1: 0.9869, lr: 0.0000, train/prefecth_time: 0.0033 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-19 23:40:00,020 INFO] 88320 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0032, train/total_loss: -0.0114, train/util_ratio: 1.0000, train/run_time: 0.5591, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 23:42:31,807 INFO] 88576 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0118, train/util_ratio: 1.0000, train/run_time: 0.5594, lr: 0.0000, train/prefecth_time: 0.0034 
+[2023-07-19 23:45:03,850 INFO] 88832 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0001, train/total_loss: -0.0145, train/util_ratio: 1.0000, train/run_time: 0.5574, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-19 23:47:35,813 INFO] 89088 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0003, train/total_loss: -0.0117, train/util_ratio: 1.0000, train/run_time: 0.5593, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 23:50:09,803 INFO] 89344 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0040, train/total_loss: -0.0105, train/util_ratio: 1.0000, train/run_time: 0.5595, lr: 0.0000, train/prefecth_time: 0.0031 
+[2023-07-19 23:52:41,583 INFO] 89600 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0001, train/total_loss: -0.0170, train/util_ratio: 1.0000, train/run_time: 0.5580, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-19 23:55:13,540 INFO] 89856 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0007, train/total_loss: -0.0139, train/util_ratio: 1.0000, train/run_time: 0.5587, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-19 23:57:45,295 INFO] validating...
+[2023-07-19 23:57:54,425 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.         0.97       0.         0.02
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-19 23:58:08,595 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-19 23:58:08,596 INFO] 90112 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0118, train/util_ratio: 1.0000, train/run_time: 0.5578, eval/loss: 0.0450, eval/top-1-acc: 0.9860, eval/balanced_acc: 0.9858, eval/precision: 0.9864, eval/recall: 0.9858, eval/F1: 0.9860, lr: 0.0000, train/prefecth_time: 0.0037 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-20 00:00:42,084 INFO] 90368 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0007, train/total_loss: -0.0114, train/util_ratio: 1.0000, train/run_time: 0.5567, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-20 00:03:14,390 INFO] 90624 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.2700, train/total_loss: 0.2579, train/util_ratio: 1.0000, train/run_time: 0.5516, lr: 0.0000, train/prefecth_time: 0.0035 
+[2023-07-20 00:05:46,849 INFO] 90880 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0115, train/total_loss: -0.0006, train/util_ratio: 1.0000, train/run_time: 0.5549, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-20 00:08:19,043 INFO] 91136 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0144, train/util_ratio: 1.0000, train/run_time: 0.5576, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-20 00:10:53,566 INFO] 91392 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0144, train/util_ratio: 1.0000, train/run_time: 0.5617, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-20 00:13:25,628 INFO] 91648 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0004, train/total_loss: -0.0117, train/util_ratio: 1.0000, train/run_time: 0.5603, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-20 00:15:57,519 INFO] 91904 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0031, train/total_loss: -0.0115, train/util_ratio: 1.0000, train/run_time: 0.5506, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-20 00:18:29,415 INFO] validating...
+[2023-07-20 00:18:38,601 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.         0.95       0.         0.04
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.02247191 0.         0.         0.         0.         0.
+  0.         0.         0.97752809 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-20 00:18:52,865 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-20 00:18:52,866 INFO] 92160 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0003, train/total_loss: -0.0093, train/util_ratio: 1.0000, train/run_time: 0.5643, eval/loss: 0.0542, eval/top-1-acc: 0.9850, eval/balanced_acc: 0.9849, eval/precision: 0.9850, eval/recall: 0.9849, eval/F1: 0.9849, lr: 0.0000, train/prefecth_time: 0.0027 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-20 00:21:26,403 INFO] 92416 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0144, train/util_ratio: 1.0000, train/run_time: 0.5587, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-20 00:23:58,111 INFO] 92672 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0001, train/total_loss: -0.0143, train/util_ratio: 1.0000, train/run_time: 0.5526, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-20 00:26:29,847 INFO] 92928 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0161, train/total_loss: 0.0015, train/util_ratio: 1.0000, train/run_time: 0.5525, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-20 00:29:01,697 INFO] 93184 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0002, train/total_loss: -0.0144, train/util_ratio: 1.0000, train/run_time: 0.5533, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-20 00:31:35,522 INFO] 93440 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.0462, train/total_loss: 0.0343, train/util_ratio: 1.0000, train/run_time: 0.5507, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-20 00:34:07,430 INFO] 93696 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0004, train/total_loss: -0.0138, train/util_ratio: 1.0000, train/run_time: 0.5579, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-20 00:36:39,076 INFO] 93952 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0003, train/total_loss: -0.0143, train/util_ratio: 1.0000, train/run_time: 0.5567, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-20 00:39:11,115 INFO] validating...
+[2023-07-20 00:39:20,289 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.         0.96       0.         0.03
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-20 00:39:34,606 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-20 00:39:34,607 INFO] 94208 iteration, USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0003, train/total_loss: -0.0093, train/util_ratio: 1.0000, train/run_time: 0.5517, eval/loss: 0.0518, eval/top-1-acc: 0.9850, eval/balanced_acc: 0.9848, eval/precision: 0.9852, eval/recall: 0.9848, eval/F1: 0.9849, lr: 0.0000, train/prefecth_time: 0.0035 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-20 00:42:08,597 INFO] 94464 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0019, train/total_loss: -0.0077, train/util_ratio: 1.0000, train/run_time: 0.5525, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-20 00:44:40,724 INFO] 94720 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.1125, train/total_loss: 0.1004, train/util_ratio: 1.0000, train/run_time: 0.5593, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-20 00:47:12,874 INFO] 94976 iteration USE_EMA: False, train/sup_loss: 0.0002, train/unsup_loss: 0.1094, train/total_loss: 0.0974, train/util_ratio: 1.0000, train/run_time: 0.5612, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-20 00:49:44,689 INFO] 95232 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0004, train/total_loss: -0.0117, train/util_ratio: 1.0000, train/run_time: 0.5495, lr: 0.0000, train/prefecth_time: 0.0028 
+[2023-07-20 00:52:18,367 INFO] 95488 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0070, train/total_loss: -0.0051, train/util_ratio: 1.0000, train/run_time: 0.5593, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-20 00:54:50,660 INFO] 95744 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0125, train/total_loss: 0.0004, train/util_ratio: 1.0000, train/run_time: 0.5503, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-20 00:57:22,509 INFO] 96000 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0413, train/total_loss: 0.0317, train/util_ratio: 1.0000, train/run_time: 0.5588, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-20 00:59:54,740 INFO] validating...
+[2023-07-20 01:00:03,901 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.97       0.         0.03
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-20 01:00:17,789 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-20 01:00:17,791 INFO] 96256 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0095, train/util_ratio: 1.0000, train/run_time: 0.5591, eval/loss: 0.0451, eval/top-1-acc: 0.9860, eval/balanced_acc: 0.9858, eval/precision: 0.9860, eval/recall: 0.9858, eval/F1: 0.9858, lr: 0.0000, train/prefecth_time: 0.0038 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-20 01:02:52,682 INFO] 96512 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0119, train/util_ratio: 1.0000, train/run_time: 0.5585, lr: 0.0000, train/prefecth_time: 0.0041 
+[2023-07-20 01:05:24,899 INFO] 96768 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0038, train/total_loss: -0.0108, train/util_ratio: 1.0000, train/run_time: 0.5526, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-20 01:07:57,215 INFO] 97024 iteration USE_EMA: False, train/sup_loss: 0.0003, train/unsup_loss: 0.0002, train/total_loss: -0.0092, train/util_ratio: 1.0000, train/run_time: 0.5604, lr: 0.0000, train/prefecth_time: 0.0031 
+[2023-07-20 01:10:29,607 INFO] 97280 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0145, train/util_ratio: 1.0000, train/run_time: 0.5608, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-20 01:13:04,082 INFO] 97536 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0028, train/total_loss: -0.0118, train/util_ratio: 1.0000, train/run_time: 0.5649, lr: 0.0000, train/prefecth_time: 0.0044 
+[2023-07-20 01:15:36,300 INFO] 97792 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0014, train/total_loss: -0.0131, train/util_ratio: 1.0000, train/run_time: 0.5593, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-20 01:18:08,137 INFO] 98048 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0003, train/total_loss: -0.0092, train/util_ratio: 1.0000, train/run_time: 0.5514, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-20 01:20:40,408 INFO] validating...
+[2023-07-20 01:20:49,658 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.98       0.         0.02
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-20 01:21:04,024 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-20 01:21:04,026 INFO] 98304 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0168, train/util_ratio: 0.8750, train/run_time: 0.5617, eval/loss: 0.0471, eval/top-1-acc: 0.9870, eval/balanced_acc: 0.9868, eval/precision: 0.9871, eval/recall: 0.9868, eval/F1: 0.9869, lr: 0.0000, train/prefecth_time: 0.0058 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-20 01:23:37,942 INFO] 98560 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0002, train/total_loss: -0.0119, train/util_ratio: 1.0000, train/run_time: 0.5587, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-20 01:26:09,991 INFO] 98816 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0025, train/total_loss: -0.0096, train/util_ratio: 1.0000, train/run_time: 0.5579, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-20 01:28:41,953 INFO] 99072 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0004, train/total_loss: -0.0117, train/util_ratio: 1.0000, train/run_time: 0.5533, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-20 01:31:13,759 INFO] 99328 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0029, train/total_loss: -0.0116, train/util_ratio: 1.0000, train/run_time: 0.5600, lr: 0.0000, train/prefecth_time: 0.0029 
+[2023-07-20 01:33:47,977 INFO] 99584 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0144, train/util_ratio: 1.0000, train/run_time: 0.5563, lr: 0.0000, train/prefecth_time: 0.0044 
+[2023-07-20 01:36:20,244 INFO] 99840 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0004, train/total_loss: -0.0117, train/util_ratio: 1.0000, train/run_time: 0.5599, lr: 0.0000, train/prefecth_time: 0.0038 
+[2023-07-20 01:38:52,066 INFO] 100096 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0119, train/util_ratio: 1.0000, train/run_time: 0.5512, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-20 01:41:23,749 INFO] validating...
+[2023-07-20 01:41:32,885 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.98       0.         0.02
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.99122807 0.00877193
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.01010101 0.
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-20 01:41:47,186 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-20 01:41:47,187 INFO] 100352 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0001, train/total_loss: -0.0120, train/util_ratio: 1.0000, train/run_time: 0.5575, eval/loss: 0.0460, eval/top-1-acc: 0.9870, eval/balanced_acc: 0.9868, eval/precision: 0.9872, eval/recall: 0.9868, eval/F1: 0.9870, lr: 0.0000, train/prefecth_time: 0.0035 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-20 01:44:20,718 INFO] 100608 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0005, train/total_loss: -0.0141, train/util_ratio: 1.0000, train/run_time: 0.5593, lr: 0.0000, train/prefecth_time: 0.0042 
+[2023-07-20 01:46:52,528 INFO] 100864 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0952, train/total_loss: 0.0807, train/util_ratio: 1.0000, train/run_time: 0.5595, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-20 01:49:24,381 INFO] 101120 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0002, train/total_loss: -0.0144, train/util_ratio: 1.0000, train/run_time: 0.5508, lr: 0.0000, train/prefecth_time: 0.0037 
+[2023-07-20 01:51:56,225 INFO] 101376 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0061, train/total_loss: -0.0060, train/util_ratio: 1.0000, train/run_time: 0.5582, lr: 0.0000, train/prefecth_time: 0.0039 
+[2023-07-20 01:54:30,339 INFO] 101632 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0002, train/total_loss: -0.0118, train/util_ratio: 1.0000, train/run_time: 0.5499, lr: 0.0000, train/prefecth_time: 0.0040 
+[2023-07-20 01:57:02,241 INFO] 101888 iteration USE_EMA: False, train/sup_loss: 0.0000, train/unsup_loss: 0.0002, train/total_loss: -0.0144, train/util_ratio: 1.0000, train/run_time: 0.5627, lr: 0.0000, train/prefecth_time: 0.0074 
+[2023-07-20 01:59:34,048 INFO] 102144 iteration USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0007, train/total_loss: -0.0113, train/util_ratio: 1.0000, train/run_time: 0.5538, lr: 0.0000, train/prefecth_time: 0.0036 
+[2023-07-20 02:02:05,932 INFO] validating...
+[2023-07-20 02:02:15,085 INFO] confusion matrix:
+[[0.98198198 0.         0.         0.         0.         0.
+  0.         0.         0.01801802 0.        ]
+ [0.         1.         0.         0.         0.         0.
+  0.         0.         0.         0.        ]
+ [0.01       0.         0.98       0.         0.01       0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.98       0.         0.02
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.00877193 0.99122807 0.
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.02173913 0.         0.97826087
+  0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  1.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.01010101
+  0.         0.98989899 0.         0.        ]
+ [0.03370787 0.         0.         0.         0.         0.
+  0.         0.         0.96629213 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         1.        ]]
+[2023-07-20 02:02:29,324 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-20 02:02:29,326 INFO] 102400 iteration, USE_EMA: False, train/sup_loss: 0.0001, train/unsup_loss: 0.0003, train/total_loss: -0.0117, train/util_ratio: 1.0000, train/run_time: 0.5500, eval/loss: 0.0452, eval/top-1-acc: 0.9870, eval/balanced_acc: 0.9868, eval/precision: 0.9871, eval/recall: 0.9868, eval/F1: 0.9869, lr: 0.0000, train/prefecth_time: 0.0035 BEST_EVAL_ACC: 0.9910, at 26624 iters
+[2023-07-20 02:02:44,509 INFO] model saved: /root/autodl-tmp/savemodel/freematch_cifar10/latest_model.pth
+[2023-07-20 02:02:44,511 INFO] Model result - eval/best_acc : 0.991
+[2023-07-20 02:02:44,512 INFO] Model result - eval/best_it : 26623

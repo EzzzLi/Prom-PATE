@@ -197,7 +197,7 @@ def main():
     parser = argparse.ArgumentParser(description='pate train')
     parser.add_argument('--seed', type=int, default=8872574)
     parser.add_argument('--device', type=str, default='cpu')
-    parser.add_argument('--teacher_num', type=int, default=400)
+    parser.add_argument('--teacher_num', type=int, default=350)
     parser.add_argument('--dataset', type=str, default='CIFAR100')
     parser.add_argument('--batch_size', type=int, default=8)
     parser.add_argument('--epoch', type=int, default=30)

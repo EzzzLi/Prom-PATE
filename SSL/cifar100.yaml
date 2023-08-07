@@ -14,7 +14,6 @@ num_labels: 200
 uratio: 1
 ema_m: 0.0
 hard_label: True
-# hard_label: False
 T: 0.5
 ema_p: 0.999
 ent_loss_ratio: 0.001
@@ -28,14 +27,14 @@ weight_decay: 0.0005
 amp: False
 clip: 0.0
 use_cat: True
-net: eva02_base_patch14_448_mim_in22k_ft_in22k_in1k
+net: eva_large_patch14_196_in22k_ft_in22k_in1k
 net_from_name: False
 data_dir: ./data
 dataset: cifar100
 train_sampler: RandomSampler
 num_classes: 100
 num_workers: 4
-seed: 2
+seed: 0
 world_size: 1
 rank: 0
 multiprocessing_distributed: False
@@ -43,5 +42,4 @@ dist_url: tcp://127.0.0.1:10081
 dist_backend: nccl
 gpu: 0
 use_pretrain: True
-pretrain_path: https://github.com/microsoft/Semi-supervised-learning/releases/download/v.0.0.0/vit_small_patch2_32_mlp_im_1k_32.pth
-noisy_file: nosiy_labels_CIFAR100_eva_350_168_e4
+noisy_file: nosiy_labels_CIFAR100_cifar100_e8
