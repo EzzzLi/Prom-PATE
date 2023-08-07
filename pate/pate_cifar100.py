@@ -16,7 +16,6 @@ from transformers import ViTImageProcessor, ViTModel, SwinForImageClassification
 
 cifar100_std = (0.2675, 0.2565, 0.2761)
 cifar100_mean = (0.5071, 0.4867, 0.4408)
-cifar10_std
 
 
 ## this is reprogramming code
