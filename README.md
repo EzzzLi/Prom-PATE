@@ -85,6 +85,8 @@ python noisy_and_count.py --dataset CIFAR100 \
 
 ## Train Student model by SSL
 
+For different datasets, first modify the __init__.py file in Prompt-PATE\SSL\semilearn\core.
+
 For Cifar10 Dataset
 ```
 cd SSL
